@@ -1,3 +1,4 @@
+
   <div>
          <input value="<%= parent_id %>" type="hidden" name="comment[parent_id]" class ="comment_parent_id" data-id="<%=parent_id%>">
           <input value="<%= @comment.product.present? ? @comment.product.id : product.id  %>" type="hidden" name="comment[product_id]" class ="comment_product_id" data-id="<%=parent_id%>">
@@ -11,5 +12,6 @@
           data-id="<%=parent_id%>" ></center> 
     
   </div> 
+
 
 

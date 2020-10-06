@@ -47,10 +47,12 @@ vi:
       logout: Đăng xuất
   products:
     show:
+
       Condition: Tình trạng  
       Availability:  Sẵn có
       Quantity: "Số lượng"
-      Store: Cửa hàng 
+      Store: Cửa hàng     
+      notice: "Khong tim thay san pham"
 
   layouts:
     admin:
@@ -90,3 +92,6 @@ vi:
       password_confirmation: Nhắc lại mật khẩu         
               
 
+
+     
+      

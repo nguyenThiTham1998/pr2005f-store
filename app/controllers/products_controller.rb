@@ -14,9 +14,8 @@ class ProductsController < ApplicationController
 		if current_user.present?
 			@comment = current_user.comments.build
 		end
-		@comments = @product.comments.paginate(page: params[:page])
-		
 		@product_details = @product.product_details
+		@comments = @product.comments.paginate(page: params[:page])
 
 	end
 	
@@ -24,8 +23,12 @@ class ProductsController < ApplicationController
 	def find_product
 		@product = Product.find_by id: params[:id]
 		if @product.nil?
+
 			redirect_to root_url
 			flash[:danger] = t ".not_updated"
+
+			redirect_to root_url, notice: t('.notice')
+			
 		end
 	end			
 

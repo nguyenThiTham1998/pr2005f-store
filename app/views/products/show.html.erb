@@ -47,6 +47,14 @@
 									<span ><%=  @product.product_details.pluck(:price)[0] %>$ </span>
 									
 									<label><%= t".Quantity" %>:</label>
+
+								<p id="notice-select"></p>
+								<span>
+									
+									<button id ="add">+</button>
+									<input id ="result_quantity" type ="text" value = "1">
+									<button id ="reduce">-</button>
+
 									
 										<button type="button" class="btn btn-fefault cart">
 											<i class="fa fa-shopping-cart"></i>
@@ -264,9 +272,7 @@
 									<p><b>Let us know your opinion</b></p>
 								<div class = "row">
 									<% if user_signed_in? %>	
-
-									   <%= render "comments/form", product: @product, parent_id:"", comment_new: @comment %>
-										
+									   <%= render "comments/form", product: @product, parent_id:"", comment_new: @comment %>	
 									<% end %> 
 								
 									<div id = "append-comment">		

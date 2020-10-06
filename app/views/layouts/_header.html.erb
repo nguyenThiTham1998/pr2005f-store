@@ -61,11 +61,11 @@
 
 							<% if user_signed_in? %>
 
-
 								<li><%= link_to current_user do %>
 								<i class="fa fa-user"></i><%= t ("pages.index.Account") %> <% end %>
 								</li>
 								<% if current_user.admin? %>
+
 									<li>
 										<%= link_to admin_home_path  do %>
 											<i class='fas fa-user-cog' style='font-size:15px'> </i> admin
@@ -84,8 +84,14 @@
 										<%= t ("pages.index.logout") %>
 									<% end %>
 								</li>	
-								<% else %>	
-									<li><a href="" data-toggle="modal" data-target="#modalLoginForm" ><i class="fa fa-lock"></i> <%= t ("pages.index.Login") %></a></li>									
+								<% else %>										
+
+									<li>
+										<a id ="add-login" href="" data-toggle="modal" data-target="#modalLoginForm" >
+											<i class="fa fa-lock"></i> <%= t ("pages.index.Login") %>
+										</a>
+									</li>
+
 								<% end %>
 								
 								<li></i>  <%= link_to t("pages.index.Cart"), cart_path(current_cart.id)  %></li>
@@ -115,7 +121,11 @@
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li class="active"><%= link_to 'Home', root_url %></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                   
+                                    <ul role="menu" class="sub-menu">
+                                        <li><%= link_to 'Products', '#' %></a></li>
+										<li><a href="product-details.html">Product Details</a></li> 
+										<li><a href="checkout.html">Checkout</a></li> 											
+                                    </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">

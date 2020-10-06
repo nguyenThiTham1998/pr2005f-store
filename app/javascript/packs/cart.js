@@ -36,10 +36,12 @@ $(document).ready(function(){
     var id = $(this).data('id');
     $.ajax({
       url: '/add_products_to_carts/'+id ,
+
      data: {
       id: id,
        authenticity_token: $('[name="csrf-token"]')[0].content
      },
+
       type: "delete",
 
       success: function(data) {
@@ -62,7 +64,9 @@ $(document).ready(function(){
      $.ajax({
         url: '/add_products_to_carts/'+id,
         data: {
+
             authenticity_token: $('[name="csrf-token"]')[0].content,
+
             quantity: $(".quantity-"+iddetail).val(),
             color: document.getElementById("color-" + iddetail).innerHTML,
             size: $(".value-size-" + iddetail).val(),
@@ -87,6 +91,7 @@ $(document).ready(function(){
      $.ajax({
         url: '/add_products_to_carts/'+id,
         data: {
+
             authenticity_token: $('[name="csrf-token"]')[0].content,
             quantity: $(".quantity-"+iddetail).val(),
             color: document.getElementById("color-" + iddetail).innerHTML,

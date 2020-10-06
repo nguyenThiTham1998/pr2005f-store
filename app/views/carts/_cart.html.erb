@@ -2,7 +2,6 @@
 	<% current_cart.content.each do|key, value| %>
 		<% @product_detail= ProductDetail.find_by id:"#{key}" %>
 
-
 			<tr class ="xoa-<%= @product_detail.id %>">
 				<td class="cart_product">
 					<a href=""><img src="images/cart/one.png" alt=""></a>
@@ -30,14 +29,14 @@
 
 				<td class="cart_quantity"  >
 					<div class="cart_quantity_button">
-						<button class="add-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product.id %>" 
+						<button class="add-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product_id %>" 
 							> + </button>
-						<input class="quantity-<%= @product_detail.id %>" name="quantity" value= "<%= "#{value}" %>" autocomplete="off" >
-						<button class="minus-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product.id %>" > - </button>
+						<input class="quantity-<%= @product_detail.id %>" name="quantity" value= "<%=@quantity %>" autocomplete="off" >
+						<button class="minus-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product_id %>" > - </button>
 					</div>
 				</td>
 				<td class="cart_total">
-					<p id="cart_total_price-<%= @product_detail.id %>"><%=("#{value}".to_i)*@product_detail.price %> </p>
+					<p id="cart_total_price-<%= @product_detail.id %>"><%="#{value}".to_i*@product_detail.price%> </p>
 				</td>
 				<td class="cart_delete-<%= @product_detail.id %>">
 					<button class="delete-product" data-id = "<%= @product_detail.id %>">X</button>
