@@ -33,7 +33,20 @@
             </span>
           </a>
         </li>
-        
+        <li class="treeview" style="height: auto;">
+          <a href="#">
+            <i class="fa fa-cubes"></i>
+            <span>Products</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" style="display: none;">
+            <li><a href="<%= admin_products_path %>"><i class="fa fa-circle-o"></i> All products </a></li>
+            <li><a href="<%= new_admin_product_path %>"><i class="fa fa-circle-o"></i> Create product</a></li>
+            <li><a href="#%>"><i class="fa fa-circle-o"></i> Edit product</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
