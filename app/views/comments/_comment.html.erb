@@ -20,8 +20,8 @@
    <% if current_user.current_user?(comment.user) %>
 	   <span class = "delete-comment" data-id = "<%= comment.id %>">
 	    <%= link_to  product_comment_path(comment.product, comment),
-	          method: :delete,
-	          data: {alert: "are you sure?"}, id: "delete-comment#{comment.id}", remote:true do %><i class='fas fa-trash-alt' style='font-size:15px;color:red'></i><% end %>
+	        method: :delete,
+	        data: {alert: "are you sure?"}, id: "delete-comment#{comment.id}", remote:true do %> <i class='fas fa-trash-alt' style='font-size:15px;color:red'></i><% end %>
 	   </span> 
 	   <span class = "edit-comment" data-id = "<%= comment.id %>">
 	   	<%= link_to  '#', id: "edit#{comment.id}", remote: true do %><i class="fa fa-edit" style="font-size:15px;color:#52FF33"></i><% end %>

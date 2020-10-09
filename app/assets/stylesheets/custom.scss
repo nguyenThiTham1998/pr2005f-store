@@ -35,7 +35,52 @@
 
 .margin50px{
 	margin-top:50px;
+}
 
+.Awaiting.check{
+	background-color: #0080FF;
+}
+.Canceled.by.seller{
+	background-color: #8A0808;
+}
+.Accepted{
+	background-color: #01DF3A;
+}
+.Processing{
+	background-color: #FF8000;
+}
+.Shipping{
+	background-color: #8000FF;
+}
+.Delivered{
+	background-color: #0B6138;
+}
+.Refunded{
+	background-color: #FFBF00;
+}
+.Canceled.by.buyer{
+	background-color: #FE2E2E;
+}
+
+.lang a{
+	color: white;
+	font-weight: bold;
+}
+
+.lang {
+	color: white;
+	font-weight: bold;
+	margin-top: 12px;
+    margin-left: 20px;
+}
+
+.fa-eye {
+	margin-left: 10%;
+}
+
+.index-img {
+	width: 10%;
+    float: left;
 }
 
 .fa-reply{
@@ -49,6 +94,7 @@
 .phongto{
 	transition: transform 1.2s;
 }
+
 .phongto:hover{
 	transform: scale(1.2);
 }
@@ -107,4 +153,6 @@
 	color: red;
 }
 
-
+.product-description {
+	width: 80%;
+}

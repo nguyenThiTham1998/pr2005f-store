@@ -1,18 +1,17 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="javascript:void(0)" class="logo">
+    <a href="<%=root_path%>" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+    <!--   <span class="logo-mini"><b>A</b>LT</span> -->
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b><%= t "admin.layouts.application.Admin_Pages" %></b></span>
+      <span class="logo-lg"><b>Home</b></span>
     </a>
-
-
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <div class="btn-group">
-      <%= link_to t("pages.index.English"), locale:"en" %>
-      <%= link_to t("pages.index.Vietnamese"), locale:"vi" %>
+      <div class="btn-group lang">
+        <%= link_to "en", locale:"en" %> | <%= link_to "vi", locale:"vi" %>
       </div>
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">

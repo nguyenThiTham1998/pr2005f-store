@@ -4,7 +4,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <i class='fas fa-store-alt admin-logo' ></i>
+          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><%= current_user.fullname%></p>
@@ -51,6 +51,10 @@
               <i class="fa fa-cubes"></i>
               <span><%= t("links.Users") %></span>
             <% end %> 
+          <a href="<%= admin_orders_path %>">
+            <i class="fa fa-shopping-bag"></i>
+            <span>Orders</span>
+          </a>
         </li>
       </ul>
     </section>

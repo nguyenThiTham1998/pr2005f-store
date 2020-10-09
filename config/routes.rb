@@ -3,10 +3,7 @@ Rails.application.routes.draw do
 
  	resources :products
  	resources  :order_details
- 	resources :add_products_to_carts
- 	namespace :admin do
-        get 'static_pages/home'
-  end      
+ 	resources :add_products_to_carts    
 
 
   	  devise_for :users,
@@ -41,5 +38,6 @@ Rails.application.routes.draw do
       end 
       resources :product_details   
       resources :users     
+      resources :orders          
   end
 end

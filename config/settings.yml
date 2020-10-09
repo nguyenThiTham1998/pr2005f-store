@@ -12,10 +12,11 @@ size:
             "2-3-years-98_cm", "3-4 years-104_cm", "4-5-years_110_cm", 
             "6_years_116_cm", "7_years_122_cm", "8_years_128_cm", 
             "9_years_134_cm", "10_years_140_cm", "11-12_years_152_cm"]  
-limit_product: 4                            
+limit_product: 4                                                         
+order_status:
+  ["Awaiting check", "Canceled by seller", "Accepted", "Processing",
+            "Shipping", "Delivered", "Refunded", "Canceled by buyer"]
 
-
- 
 
 
   

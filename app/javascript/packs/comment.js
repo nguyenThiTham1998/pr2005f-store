@@ -51,7 +51,7 @@ $(document).on('click', '.post-comment', function() {
 					}
 				})
 				});	
-
+		
 			$('.update-comment').on('click', function(){
 					comment_id = $(this).data('id');
 					var saveComment = '#update-comment'+comment_id

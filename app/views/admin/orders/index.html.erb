@@ -1,0 +1,129 @@
+ <div class="content-wrapper" style="min-height: 926px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        
+        <small><%=t ".all_orders"%></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i><%=t ".home"%></a></li>
+        <li><a href="#"><%=t ".orders"%></a></li>
+        <li class="active"><%=t ".all_orders"%></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-pen" style="margin-right: 10px;"></i><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <%@order_status.each do |order_status|%>
+                    <li class = "update-status" data-id = "<%= order_status.last %>" >
+                      <%x = order_status.last %>
+                      <a><%=t ".order_status"+x.to_s %></a></li>
+                  <%end%>
+                </ul>
+              </div>
+
+              <div class="box-tools">
+                <div class="margin"  style=" margin: 0;">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default"><%=t ".filter"%></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <%Order.order_statuses.each do |order_status|%>
+                        <%x = order_status.last %>
+                        <li><%= link_to (t ".order_status"+x.to_s) , admin_orders_path(type: order_status.last) %></li>
+                      <%end%>                     
+                      <li class="divider"></li>
+                      <li><a href= "<%=admin_orders_path%>"><%=t ".all_orders"%></a></li>
+                    </ul>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default"><%=t".order1"%></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><%= link_to t('.newest'), admin_orders_path(type: @type) %></li>
+                      <li><%= link_to t('.oldest'), admin_orders_path(type: @type, val: "oldest") %></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tbody>
+                  <tr class = "title-table">
+                    <td><input type="checkbox" class= "checkItem" id="checkAll" ></td>
+                    <td><%= t ".order" %></td>
+                    <td><%= t ".purchased" %></td>
+                    <td><%= t ".shipping_info" %></td>
+                    <td><%= t ".price"%></td>
+                    <td><%= t ".order_status"%></td>
+                    <td><%= t ".update_at"%></td>
+                    <td><%= t ".create_at"%></td>
+                    <td><%= t ".view"%></td>
+                  </tr>
+
+                  
+                    <% @orders.each do |order| %>
+    	              <% user = User.find_by(id: order.user_id) %>
+    	              <% order_details = order.order_details %>
+
+                      <tr class = "title-table">
+                        <td><input type="checkbox" id="checkItem" class= "checkItem" name= "order" value="<%= order.id %>"></td>
+                        <td><%=t '.order_id'%>: <%=order.id%>
+                            <%=t '.created_by'%>: <a htef="#"><%= user.fullname %></a>
+                        </td>
+                        <td>
+                          <%order_items = 0%>
+                          <% order_details.each do |order_detail| %> 
+                            <%order_items += order_detail.quality%>      
+                          <% end %>
+                          <a href="<%= admin_order_path(order.id)%>"><%=order_items%> <%=t '.items'%></a>
+                        </td>
+                        <td>	<%= t".recipient's_name"%>:<% user.fullname %></br>
+                							<%= t".phone_number"%>:<% user.phone %></br>
+                							<%= t".address"%>:<% user.address %></td>
+                        <td><%=number_to_currency(order.total_price)%></td>
+                        <td>
+    	                    	<span class = "label <%=order.order_status%>" id = "append-order-status-<%=order.id %>" data-id = "<%= order.order_status %>"><%=order.order_status%>  
+                            </span>   
+                        </td>
+                        <td><%= l(order.updated_at, format: :long)%></td>
+                        <td><%= l(order.created_at, format: :long)%></td> 
+                        <td>
+                          <a href="<%= admin_order_path(order.id)%>"><i class="fa fa-eye"></i></a>
+                        </td>                  
+                      </tr>
+                    <% end %>
+
+                </tbody>
+              </table>
+              <%= will_paginate @orders%>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+
+
+
