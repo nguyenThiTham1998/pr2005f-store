@@ -1,8 +1,7 @@
 vi:
   pages:
     index:
-
-      Cart: Gior hàng 
+      Cart: Giỏ hàng
       Login: Đăng nhập 
       Account: Tài khoản 
       English: Tiếng anh 
@@ -27,17 +26,67 @@ vi:
       size: KÍch thước 
       price: Giá 
       Update product: Cập nhật sản phẩm  
-
       Cart: Gio hang
       Login: Dang nhap
-      Account: Tai khoan
-      English: Tieng anh
-      Vietnamese: Tieng viet
-      KIDS: Trẻ Em
-      WOMENS: PHỤ NỮ
-      MENS: ĐÀN ÔNG
+      Account: Tài khoản
+      English: Tiếng anh
+      Vietnamese: Tiếng Việt
+      mans: đàn ông
+      womens: phụ nữ
+      kids: trẻ em
+      shoes: giày
+      bag: túi xách
+      family: gia đình
+      fashionables: đồ hiệu
+      sports: đồ thể thao
+      summer: đồ mùa hè
+      winter: đồ mùa đông  
+      Hot_products: Sản phẩm bán chạy nhất
+      category: thể loại
+      recommended_items: đề xuất
+      logout: Đăng xuất
   products:
     show:
-      Condition: Tình trạng    
-      
-      
+      Condition: Tình trạng  
+      Availability:  Sẵn có
+      Quantity: "Số lượng"
+      Store: Cửa hàng 
+
+  layouts:
+    admin:
+      satatic_pages:
+        home:
+          Admin_pages: Quản Lý
+  admin: 
+    product_details_controller:
+      update:
+        not_updated: không thể cập nhật   
+        not_found: không tìm thấy    
+  admin:
+    products:
+      show: 
+        Color: Màu sắc
+        Size: Kích thước        
+        Price: Giá        
+        Update_date: Cập nhật           
+        Create_date: Khởi tạo         
+        edit: chỉnh sửa 
+        not_found: not found   
+  devise:
+    sessions:
+      new:
+        Login: Đăng nhập vào tài khoản của bạn
+      form:  
+        Password: Mật Khẩu  
+    registrations:
+        new:
+          New_User_Signup: Đăng Ký tài khoản mới  
+        form: 
+          characters_minimum: ký tự tối thiểu 
+  helpers:
+    placeholder:
+      name: tên 
+      password: "Mật khẩu"
+      password_confirmation: Nhắc lại mật khẩu         
+              
+

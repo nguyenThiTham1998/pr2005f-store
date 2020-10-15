@@ -5,6 +5,7 @@
         <%= @product.name%>
         <small>preview of simple tables</small>
       </h1>
+      	<%= image_tag (@product.image[0] if @product.image.attached?) %>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Product details</a></li>
@@ -25,17 +26,19 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>ID</th>                
-                  <th>Color</th>
-                  <th>Price</th>
-                  <th>Update date</th>
-                  <th>Create date</th>
-                  <th>edit</th>
+                  <th><%= t"admin.products.show.Color" %></th>
+                  <th><%= t"admin.products.show.Size" %></th>
+                  <th><%= t"admin.products.show.Price" %></th>
+                  <th><%= t"admin.products.show.Update_date" %></th>
+                  <th><%= t"admin.products.show.Create_date" %></th>
+                  <th><%= t"admin.products.show.edit" %></th>
                 </tr>
 
                 <% @product_details.each do |product_detail| %>
                   <tr>
                     <th><%=product_detail.id%></th>
                     <th><%=product_detail.color%></th>
+                    <th><%=product_detail.size %></th>
                     <th><%=product_detail.price%></th>
                     <td><%=product_detail.updated_at%></td>
                     <td><%=product_detail.created_at%></td>

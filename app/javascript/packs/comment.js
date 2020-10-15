@@ -107,3 +107,21 @@ $(document).on('click', '.post-comment', function() {
 			$('#sub_comment-'+sub_comment_id).remove();
 		});
 
+
+		$(document).on('click', '.classify-click', function() {
+			page_id = $(this).data('id');
+			$.ajax({
+				type: 'GET',
+				url: '/products',
+				data:{
+					classify: page_id
+				},
+				dataType: 'json',
+				success: function(data){
+					$('#home').html(data.data_products);
+
+				
+				}	
+			})
+		});		 
+	

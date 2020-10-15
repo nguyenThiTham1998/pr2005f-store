@@ -60,11 +60,66 @@ en:
       size: size
       price: price
       Update product: Update product 
-      KIDS: KIDS
-      WOMENS: WOMENS
-      MENS: MENS
+      mans: mans
+      womens: womens
+      kids: kids
+      shoes: shoes
+      bag: bag
+      family: family
+      fashionables: fashionables
+      sports: sports
+      summer: summer
+      winter: winter
+      Hot_products: Hot products
+      category: category
+      recommended_items: recommended items
+      logout: logout
   products:
     show:
       Condition: Condition
-  
-          
+
+      Availability:  Availability
+      Quantity: Quantity
+      Store: Store
+
+
+  admin:
+    layouts:
+      satatic_pages:
+        home:
+          Admin_pages: Admin Pages
+  admin: 
+    product_details_controller:
+      update:
+        not_updated: not updated 
+        not_found: not found 
+  admin:
+    products:
+      show: 
+        Color: Color
+        Size: Size        
+        Price: Price        
+        Update_date: Update at          
+        Create_date: Created at         
+        edit: edit
+        not_found: not found 
+  devise:
+    sessions:
+      new:
+        Login: Login to your account  
+      form:  
+        Password: Password  
+    registrations:
+      new:
+        New_User_Signup: New User Signup
+        characters_minimum: characters minimum
+  helpers:
+    placeholder:
+      name: name
+      password: Password
+      password_confirmation : "Password_confirmation"      
+
+            
+
+
+

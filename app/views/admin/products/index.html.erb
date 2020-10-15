@@ -60,7 +60,10 @@
                     <%end%>
                     <td><%=product.updated_at%></td>
                     <td><%=product.created_at%></td>
-                    <td><a href="<%= admin_product_product_details_path(product.id)%>" class="label label-success">View</a></td>
+
+                    <td>
+                      <%= link_to 'View',  admin_product_path(product), class: "label label-success"  %>
+                   </td>
                     <td><a href="<%= edit_admin_product_path(product.id)%>"><i class="fa fa-pencil"></i></a></td>
                   </tr>
                 <% end %>

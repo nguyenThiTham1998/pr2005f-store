@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-
-
-
-
-
-
   resources :carts
 
  	resources :products
@@ -33,13 +27,14 @@ Rails.application.routes.draw do
       resources :sub_comments 
      end 
 
+ 	get '/admin/home', to: 'admin/static_pages#home'
+
  
-    scope "(:locale)", locale: /en|vi/ do
-    	root 'pages#index'
-      resources :products do 
-        resources :comments 
-      end
-	end
+	root 'pages#index'
+  get '/home', to: 'pages#index'
+  resources :products do 
+    resources :comments 
+  end
 
   namespace :admin do
       get 'static_pages/home'

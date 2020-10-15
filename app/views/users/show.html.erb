@@ -2,5 +2,5 @@
 	<%= @user.email %>
 </p>
 <p><%= @user.fullname %></p>
-<%= gravatar_for @user %>
+<%= image_tag @user.image if @user.image.attached? %>
 

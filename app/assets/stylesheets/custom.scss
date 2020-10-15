@@ -45,3 +45,59 @@
 .pr-name {
 	margin-left: 10px;
 }
+
+.phongto{
+	transition: transform 1.2s;
+}
+.phongto:hover{
+	transform: scale(1.2);
+}
+
+.button-login{
+	width:50px!important;
+	font-size: 15px!important;
+	text-align: center!important;
+}
+.admin-logo{
+	font-size: 36px;
+	color: skyblue; 
+}
+.pr-left{
+	float: left;
+}
+.color_select input[type="checkbox"] {
+  display: none;
+}
+
+.color_select span {
+  display: inline-block;
+  padding: 5px;
+  font-size: 14px!important;
+  text-transform: uppercase;
+  border: 2px solid gold;
+  border-radius: 3px;
+  color: gold;
+}
+
+.color_select input[type="checkbox"]:checked + span {
+  background-color: gold;
+  color: black;
+}
+.size_select input[type="checkbox"] {
+  display: none;
+}
+
+.size_select span {
+  display: inline-block;
+  padding: 5px;
+  font-size: 14px!important;
+  text-transform: uppercase;
+  border: 2px solid gold;
+  border-radius: 3px;
+  color: gray;
+}
+
+.size_select input[type="checkbox"]:checked + span {
+  background-color: skyblue;
+  color: red;
+}

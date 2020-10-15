@@ -1,5 +1,5 @@
 class Admin::ProductsController < Admin::ApplicationController
-    before_action :find_product, only: [:edit, :update, :destroy]
+    before_action :find_product, only: [:edit, :update, :destroy, :show]
 
 	def index
         @products = Product.all 
@@ -21,12 +21,20 @@ class Admin::ProductsController < Admin::ApplicationController
             render 'new'
         end
     end
-
+    def show
+        @product_details = @product.product_details
+        if @product_details.empty?
+            flash[:danger] = ''
+            render 'index'
+        end
+    end    
     def edit
     end
 
     def update  
         pr = product_params.merge(classify: product_params[:classify].to_i, product_type:  product_params[:classify].to_i )    
+        @product.image.destroy_all
+        @product.image.attach(params[:product][:image])
         if @product.update(pr)
             flash[:success] = "Product updated"
             redirect_to admin_products_path

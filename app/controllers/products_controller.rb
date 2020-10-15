@@ -1,9 +1,12 @@
 class ProductsController < ApplicationController
 
 	before_action :find_product, only: :show
-
 	def index
-		@products = Product.all
+		@products = Product.send(params["classify"])
+		render json: {
+			data_products: render_to_string(@products)
+		}, status: :ok
+
 	end	
 	def show
 
@@ -22,7 +25,7 @@ class ProductsController < ApplicationController
 		@product = Product.find_by id: params[:id]
 		if @product.nil?
 			redirect_to root_url
-			flash[:danger] ="Khong tim thay san pham"
+			flash[:danger] = t ".not_updated"
 		end
 	end			
 

@@ -5,29 +5,23 @@
 		<div class="col-sm-9 padding-right" >
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
-							<div class="view-product">
-								<img src="images/product-details/1.jpg" alt="">
-								<h3>ZOOM</h3>
+							<div class="view-product phongto">
+
+								<%= image_tag @product.image[0] if @product.image.attached? %>
+								
+								<h3 class = "phongto">ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								
 								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
-										<div class="item">
-										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-										</div>
-										<div class="item active">
-										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-										</div>
+
+        
+								    <div class="carousel-inner ">
+								    	<% @product.image.all.map do |img| %>
+          									<div class = "item active"> 
+          										<%=image_tag img if @product.image.attached? %> 
+          									</div> 
+										<% end %>
 										
 									</div>
 
@@ -46,40 +40,42 @@
 								<img src="images/product-details/new.jpg" class="newarrival" alt="">
 
 
-
-								Color: <button id="color_blue" >Blue</button>
-								<button id="color_white"  >White</button>
-								<input id = "color_result" value = "" type ="hidden"> </input>
-								<br>
-								<br>
-
-								Size: <button id="medium"  >M</button>
-								<button id = "large"  >L</button>
-								<button id ="xlarge" >XL</button>
-								<input id = "size_result" value = "" type="hidden"> </input>
-								 <br>
-								 <br>
-									
 								<h2><%= @product.name %></h2>
 								<p>Product code: <%= @product.id %></p>
 								<img src="images/product-details/rating.png" alt="">
-								<span>
-									<span>US $59</span>
-									<button id ="add">+</button>
-									<input id ="result_quantity" type ="text" value = "1">
-									<button id ="reduce">-</button>
+								<span >
+									<span ><%=  @product.product_details.pluck(:price)[0] %>$ </span>
 									
-									<button id ="add-buton" type="button" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
+									<label><%= t".Quantity" %>:</label>
+									
+										<button type="button" class="btn btn-fefault cart">
+											<i class="fa fa-shopping-cart"></i>
+
 										Add to cart
 									</button>
+
+									<input type="text" value=""><br>
+									<h3>color:</h3>
+									<p class = "color_select">
+										<% option_for_color.map do |c| %>
+											<label><input type = "checkbox" name="<%=c %>" class = "color-button" value= "<%= c %>"  id = "color-<%= c %>" data-id = "<%=c %>" ><span><%=c %></span></label> 
+										<% end %><br>
+									</p>
+									<h3>Size:</h3>
+									<p class = "size_select">
+										<% option_for_size.map do |s| %>
+									<label><input type = "checkbox" name="<%=s %>" class = "size-button" value= "<%= s %>"  id = "color-<%= s %>" data-id = "<%=s %>" ><span><%=s %></span></label> 
+
+										<% end %>
+									</p>	
+
 								</span>
-								<p><b>Availability:</b> In Stock</p>
-								<p><b><%= t "products.show.Condition"%>: </b> New</p>
-								<p><b>Brand:</b> E-SHOPPER</p>
-								<a href="">
-									<img src="images/product-details/share.png" class="share img-responsive" alt="">
-								</a>
+
+								<p><b><%= t".Availability" %>:</b> In Stock</p>
+								<p><b><%= t"products.show.Condition" %>: </b> New</p>
+								<p><b><%= t".Store"%>:</b> E-SHOPPER</p>
+								<a href=""><img src="images/product-details/share.png" class="share img-responsive" alt=""></a>
+
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->
@@ -255,12 +251,15 @@
 								<div class="col-sm-12">
 									<ul>
 										<% if user_signed_in? %>
-										<li><a href="<%= user_path(current_user) %>"><i class="fa fa-user"></i><%= current_user.email %></a></li>
-										<li><a href=""><i class="fa fa-clock-o"></i><p><%= l Time.now, format: :short %></p></a></li>
-										
-										<%end%>
+											<li>
+												<%= link_to  user_path(current_user) do %>
+													<i class="fa fa-user"><%= current_user.email %></i>
+												<% end %>
+											</li>
+										<% end %>
+										<li><a href=""><i class="fa fa-clock-o"></i><%= Time.now.strftime("%H giờ %M phút ") %></a></li>
+										<li><a href=""><i class="fa fa-calendar-o"></i><%= Time.now.strftime(" ngày %d tháng  %m năm %Y") %></a></li>
 									</ul>
-
 									<p>Chỗ này thêm mô tả cho sản phẩm.</p>
 									<p><b>Let us know your opinion</b></p>
 								<div class = "row">

@@ -3,6 +3,7 @@ class User < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	has_many :sub_comments, dependent: :destroy
 	has_many :order_details, through: :orders
+	has_one_attached :image
 
 
   # Include default devise modules. Others available are:

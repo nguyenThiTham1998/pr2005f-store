@@ -28,12 +28,12 @@
               </div>
 
               <div class="form-group">
-                <%= f.label :size, "Size" %>
+               
                 <div class="classify-list">
     			    <div class="form-group">
                 <%= f.label :size, "size" %>
                 <div class="classify-list">
-                  <div><%= f.select :size, options_for_select(Product.sizes)%></div>
+                  <div><%= f.select :size, options_for_select(ProductDetail.sizes.keys)%></div>
                 </div>
               </div>
 
