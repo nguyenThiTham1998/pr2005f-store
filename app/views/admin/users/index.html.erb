@@ -2,7 +2,6 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        
         <small>All users</small>
       </h1>
       <ol class="breadcrumb">
@@ -18,8 +17,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">All user</h3>
-
+              <h3 class="box-title">User management</h3>
               <div class="box-tools">
                 <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
@@ -78,7 +76,6 @@
                     		<%comments_sum +=1%>
                     	<%end%>
                     	<a href="<%= admin_user_path(user.id)%>"><%=comments_sum%> comments<a/>
-              		
                     </td>
                   </tr>
                 <% end %>

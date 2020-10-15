@@ -16,13 +16,7 @@
 
 				<td class="price">
 					<input type="hidden" class= "value-size-<%= @product_detail.id %>" value = "<%= @product_detail.size %>" > 
-					<% if @product_detail.size = 1 %>
-						<span>M</span>
-					<% elsif @product_detail.size = 2 %>
-						<span>L</span>
-					<% else @product_detail.size = 3 %>
-						<span>XL</span>
-					<%end%>
+						<%= @product_detail.size %>
 					, <span id = "color-<%= @product_detail.id %>" ><%= @product_detail.color %></span>
 				</td>
 
@@ -31,7 +25,7 @@
 					<div class="cart_quantity_button">
 						<button class="add-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product_id %>" 
 							> + </button>
-						<input class="quantity-<%= @product_detail.id %>" name="quantity" value= "<%=@quantity %>" autocomplete="off" >
+						<input class="quantity-<%= @product_detail.id %>" name="quantity" value= "<%= value  %>" autocomplete="off" >
 						<button class="minus-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product_id %>" > - </button>
 					</div>
 				</td>

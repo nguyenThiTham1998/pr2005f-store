@@ -36,7 +36,7 @@ class Admin::ProductsController < Admin::ApplicationController
         @product.image.destroy_all
         @product.image.attach(params[:product][:image])
         if @product.update(pr)
-            flash[:success] = "Product updated"
+            flash[:success] = t ".Product_updated"
             redirect_to admin_products_path
         end
     end

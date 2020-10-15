@@ -1,7 +1,4 @@
 class Admin::UsersController < Admin::ApplicationController
-	def index
-		@users = User.all
-	end
 
 	def show
 		@user = User.find_by(id: params[:id])
@@ -13,4 +10,9 @@ class Admin::UsersController < Admin::ApplicationController
 			
 		end
 	end
-end
+	
+	def index
+		@users = User.all.order_by_time
+	end	
+
+end	

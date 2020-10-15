@@ -42,18 +42,16 @@
             </span>
           </a>
           <ul class="treeview-menu" style="display: none;">
-            <li><a href="<%= admin_products_path %>"><i class="fa fa-circle-o"></i> All products </a></li>
-            <li><a href="<%= new_admin_product_path %>"><i class="fa fa-circle-o"></i> Create product</a></li>
+            <li><a href="<%= admin_products_path %>"><i class="fa fa-circle-o"></i><%= t("links.All_products") %>  </a></li>
+            <li><a href="<%= new_admin_product_path %>"><i class="fa fa-circle-o"></i><%= t("links.Create product") %> </a></li>
           </ul>
         </li>
         <li class="treeview" style="height: auto;">
-          <a href="<%= admin_users_path %>">
-            <i class="fa fa-cubes"></i>
-            <span>Users</span>
-          </a>
-          
+            <%= link_to admin_users_path do %>
+              <i class="fa fa-cubes"></i>
+              <span><%= t("links.Users") %></span>
+            <% end %> 
         </li>
-        
       </ul>
     </section>
     <!-- /.sidebar -->

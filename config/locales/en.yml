@@ -81,12 +81,26 @@ en:
       Quantity: Quantity
       Store: Store
       notice: "Do not find product"
+    updated:
+      Product_updated: Product updated      
+
 
   admin:
-    layouts:
-      satatic_pages:
-        home:
-          Admin_pages: Admin Pages
+    static_pages:
+      home:
+        Admin_pages: Admin Pages
+        
+  admin: 
+    product_details_controller:
+      update:
+        not_updated: not updated        
+
+    
+
+  admin:
+    static_pages:
+      home:
+        Admin_pages: Admin Pages
   admin: 
     product_details_controller:
       update:
@@ -116,7 +130,13 @@ en:
     placeholder:
       name: name
       password: Password
-      password_confirmation : "Password_confirmation"      
+      password_confirmation : "Password_confirmation"  
+  links:
+    View: "View All Products" 
+    Users: Users 
+    All_products: All products  
+    Create product: Create product      
+
 
             
 

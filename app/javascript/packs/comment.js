@@ -124,4 +124,4 @@ $(document).on('click', '.post-comment', function() {
 				}	
 			})
 		});		 
-	
+		

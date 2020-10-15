@@ -44,21 +44,22 @@ vi:
       Hot_products: Sản phẩm bán chạy nhất
       category: thể loại
       recommended_items: đề xuất
+
       logout: Đăng xuất
+
   products:
     show:
-
       Condition: Tình trạng  
       Availability:  Sẵn có
       Quantity: "Số lượng"
       Store: Cửa hàng     
       notice: "Khong tim thay san pham"
 
-  layouts:
-    admin:
-      satatic_pages:
-        home:
-          Admin_pages: Quản Lý
+  admin:
+    static_pages:
+      home:
+        Admin_pages: Quản Lý
+        
   admin: 
     product_details_controller:
       update:
@@ -73,11 +74,16 @@ vi:
         Update_date: Cập nhật           
         Create_date: Khởi tạo         
         edit: chỉnh sửa 
-        not_found: not found   
+        not_found: not found 
+      update:
+        Product_updated: sản phẩm đã được thay đổi
+
+              
   devise:
     sessions:
       new:
         Login: Đăng nhập vào tài khoản của bạn
+
       form:  
         Password: Mật Khẩu  
     registrations:
@@ -89,9 +95,16 @@ vi:
     placeholder:
       name: tên 
       password: "Mật khẩu"
-      password_confirmation: Nhắc lại mật khẩu         
+      password_confirmation: Nhắc lại mật khẩu    
+  links:
+    View: "Xem tất cả sản phẩm" 
+    Users: Người dùng
+    All_products: Sản phẩm 
+    Create product: Tạo mới sản phẩm      
+
+
+
+
               
 
 
-     
-      

@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
 	before_action :find_product, only: :show
 	def index
 		@products = Product.send(params["classify"])
@@ -14,9 +13,19 @@ class ProductsController < ApplicationController
 		if current_user.present?
 			@comment = current_user.comments.build
 		end
-		@product_details = @product.product_details
-		@comments = @product.comments.paginate(page: params[:page])
 
+		@comments = @product.comments.paginate(page: params[:page])
+		color = params['color']
+		if color.present?
+			@product_details = @product.product_details.display_by_color color
+			render json:{
+					data_color:  @product_details.pluck(:size).uniq,
+					data_all: @product.product_details.pluck(:size).uniq
+			},status: :ok
+		else 
+			@product_details = @product.product_details
+		end
+			
 	end
 	
 	private

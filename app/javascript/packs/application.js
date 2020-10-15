@@ -22,6 +22,7 @@ require('admin-lte')
 import 'packs/addproducttocart.js';
 import 'packs/cart.js';
 import 'packs/comment.js';
+
 import 'bootstrap';
 import "admin-lte/dist/css/AdminLTE.css";
 import "admin-lte/dist/css/skins/_all-skins.css";

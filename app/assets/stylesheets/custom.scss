@@ -65,7 +65,7 @@
 .pr-left{
 	float: left;
 }
-.color_select input[type="checkbox"] {
+.color_select input[type="radio"] {
   display: none;
 }
 
@@ -79,11 +79,11 @@
   color: gold;
 }
 
-.color_select input[type="checkbox"]:checked + span {
+.color_select input[type="radio"]:checked + span {
   background-color: gold;
   color: black;
 }
-.size_select input[type="checkbox"] {
+.size_select input[type="radio"] {
   display: none;
 }
 
@@ -97,12 +97,14 @@
   color: gray;
 }
 
-.size_select input[type="checkbox"]:checked + span {
+.size_select input[type="radio"]:checked + span {
   background-color: skyblue;
   color: red;
 }
 
+
 #notice-select{
 	color: red;
 }
+
 

@@ -1,10 +1,8 @@
 class AddProductsToCartsController < ApplicationController
 	before_action :authenticate_user!
 	
-	def update
-		
+	def update	
 		@product_detail = ProductDetail.find_by product_id: params[:id], size: params[:size], color: params[:color]
-
 		if @product_detail.present?
 			id_product_detail = @product_detail.id
 			quantity_product_detail = params[:quantity]
@@ -22,7 +20,6 @@ class AddProductsToCartsController < ApplicationController
 			current_cart.update!(content: @hash_content)
 
 			@quantity = current_cart.content["#{id_product_detail}"]
-		# debugger
 
 			 render json:  {
 			    "success": true,

@@ -1,0 +1,11 @@
+<section>
+	<div class="container" >
+		<div class="col-sm-9 padding-right" id="products" >
+			<div class="features_items">
+				<% @products.each do |product| %>
+					<%= render @products %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</section>

@@ -26,13 +26,11 @@ Rails.application.routes.draw do
    resources :comments do
       resources :sub_comments 
      end 
-
  	get '/admin/home', to: 'admin/static_pages#home'
-
- 
 	root 'pages#index'
   get '/home', to: 'pages#index'
   resources :products do 
+    resources :product_details 
     resources :comments 
   end
 
@@ -41,7 +39,7 @@ Rails.application.routes.draw do
       resources :products do
         resources :product_details 
       end 
-      resources :product_details  
-      resources :users      
+      resources :product_details   
+      resources :users     
   end
 end

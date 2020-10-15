@@ -4,7 +4,9 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
   
+
     <%= f.text_field :fullname, autocomplete: "name", :placeholder => t('helpers.placeholder.name') %>
+
   </div>  
 
   <div class="field">
@@ -18,14 +20,17 @@
   <div class="field">
 
     <% if @minimum_password_length %>
+
     <em>(<%= @minimum_password_length %> <%= t ".characters_minimum" %>)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", :placeholder => t('helpers.placeholder.password') %>
+
   </div>
 
   <div class="field">
 
     <%= f.password_field :password_confirmation, autocomplete: "new-password",:placeholder => t('helpers.placeholder.password_confirmation') %>
+
   </div>
 
  <div class = "button-login ">

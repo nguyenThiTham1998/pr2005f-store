@@ -31,19 +31,16 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-
   $(".delete-product").click(function(){
     var id = $(this).data('id');
     $.ajax({
       url: '/add_products_to_carts/'+id ,
-
-     data: {
-      id: id,
-       authenticity_token: $('[name="csrf-token"]')[0].content
-     },
-
-      type: "delete",
-
+      type: 'DELETE',
+      data: {
+        _method: 'DELETE',
+        id: id,
+        
+      },
       success: function(data) {
         $(".xoa-"+id).remove();
         alert("xoa thanh cong");

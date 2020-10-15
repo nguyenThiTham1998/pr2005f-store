@@ -1,4 +1,4 @@
-	<header id="header"><!--header-->
+-	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
 				<div class="row">
@@ -61,6 +61,7 @@
 
 							<% if user_signed_in? %>
 
+
 								<li><%= link_to current_user do %>
 								<i class="fa fa-user"></i><%= t ("pages.index.Account") %> <% end %>
 								</li>
@@ -73,6 +74,8 @@
 									</li>
 
 								<% else %>
+
+
 									<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>  <%= t ("pages.index.Cart") %></a>
 									</li>
 								

@@ -17,7 +17,6 @@ module ApplicationHelper
         gravatar_id = Digest::MD5::hexdigest(user.email).downcase
         "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
       end
-
  	end
   	def option_for_color
 		@product.product_details.pluck(:color).uniq
@@ -26,5 +25,4 @@ module ApplicationHelper
 	def option_for_size
 		@product.product_details.map(& :size).uniq
 	end	
-
 end
