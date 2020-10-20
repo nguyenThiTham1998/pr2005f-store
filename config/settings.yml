@@ -1,0 +1,20 @@
+classify: 
+  ["mans", "womens", "kids", "shoes", "bag", "family", 
+          "fashionables", "sports", "summer", "winter"]
+
+product_type: 
+  ["Áo khoác", "Áo blazer", "Áo sơ mi", "Áo kiểu","Áo phông","Áo nỉ chui đầu",
+                      "Áo polo", "Áo len", "Hàng dệt kim","Quần âu ","Quần bò","Chân váy",
+                      "Denim","Quần Short","Bộ com lê","Trang phục đồng bộ","Đầm | Jumpsuit"]  
+size:
+  ["XS", "S", "M", "L","XL",
+            "9-12 months (80 cm)", "12-24 months (86 cm)",
+            "2-3 years (98 cm)", "3-4 years (104 cm)", "4-5 years (110 cm)", 
+            "6 years (116 cm)", "7 years (122 cm)", "8 years (128 cm)", 
+            "9 years (134 cm)", "10 years (140 cm)", "11-12 years (152 cm)"]                              
+
+ 
+
+
+  
+

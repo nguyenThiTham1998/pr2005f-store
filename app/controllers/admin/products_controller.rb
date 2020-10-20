@@ -7,10 +7,11 @@ class Admin::ProductsController < Admin::ApplicationController
 
     def new       
     	@product = Product.new
-    	@product_detail = @product.product_details.build       
+    	@product_detail = @product.product_details.build if @product.product_details.blank?      
     end
 
     def create 
+        
         pr = product_params.merge(classify: product_params[:classify].to_i, product_type:  product_params[:classify].to_i ) 
         @product = Product.new(pr)
         @product.image.attach(params[:product][:image])
@@ -40,7 +41,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
     def product_params
         params.require(:product).permit(:name, :classify, :product_type, :image, 
-                                        product_details_attributes: [:id, :color, :price, :size_id, :_destroy])
+                                        product_details_attributes: [:id, :color, :price, :size, :_destroy])
         
     end
 
