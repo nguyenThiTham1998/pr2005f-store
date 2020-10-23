@@ -4,64 +4,45 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <i class='fas fa-store-alt admin-logo' ></i>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQKrO43xHSa6I2eFXoXgA1lsqJQwrGSZrXE7w&usqp=CAU" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>PR2005F-Shop</p>
+          <p><%= current_user.fullname%></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu tree" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview menu-open">
+        <li style="height: auto;">
           <a href="<%= admin_static_pages_home_path%>">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-            </span>
+            <i class="fa fa-dashboard"></i> 
+            <span><%= t("links.Dashboard") %></span>      
           </a>
         </li>
-        <li class="treeview" style="height: auto;">
-          <a href="#">
-            <i class="fa fa-cubes"></i>
-            <span>Products</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="display: none;">
-            <li><a href="<%= admin_products_path %>"><i class="fa fa-circle-o"></i><%= t("links.All_products") %>  </a></li>
-            <li><a href="<%= new_admin_product_path %>"><i class="fa fa-circle-o"></i><%= t("links.Create product") %> </a></li>
-          </ul>
-        </li>
-        <li class="treeview" style="height: auto;">
-            <%= link_to admin_orders_path do %>
+        <li style="height: auto;">
+            <%= link_to admin_products_path do %>
               <i class="fa fa-cubes"></i>
-              <span>Orders</span>
+              <span><%= t("links.Products") %></span>
             <% end %> 
         </li>
-        <li class="treeview" style="height: auto;">
+        <li style="height: auto;">
+            <%= link_to admin_orders_path do %>
+              <i class="fa fa-shopping-bag"></i>
+              <span><%= t("links.Orders") %></span>
+            <% end %> 
+        </li>
+        <li style="height: auto;">
             <%= link_to admin_users_path do %>
-              <i class="fa fa-cubes"></i>
+              <i class="fa fa-users"></i>
               <span><%= t("links.Users") %></span>
             <% end %> 
         </li>
-        <li class="treeview" style="height: auto;">
+        <li style="height: auto;">
             <%= link_to admin_comments_path do %>
-              <i class="fa fa-cubes"></i>
-              <span>comments</span>
+              <i class="fa fa-comments"></i>
+              <span><%= t("links.comments") %></span>
             <% end %> 
         </li>
       </ul>

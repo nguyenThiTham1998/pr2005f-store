@@ -105,17 +105,62 @@ en:
     Users: Users 
     All_products: All products  
     Create product: Create product  
-
+    home: "Home"
   admin:
     static_pages:
       home:
         Admin_pages: Admin Pages 
-    product_details_controller:
-      update:
-        not_updated: not updated        
-    static_pages:
-      home:
-        Admin_pages: Admin Pages
+        order_status0: "Awaiting check"
+        order_status1: "Canceled by seller"
+        order_status2: "Accepted"
+        order_status3: "Processing"
+        order_status4: "Shipping"
+        order_status5: "Delivered"
+        order_status6: "Refunded"
+        order_status7: "Canceled by buyer"
+        Admin_pages: Quản Lý
+        dashboard: "Dashboard"
+        new_orders: "New orders"
+        more_info: "More info"
+        order-id: "Order ID" 
+        items: "Items"
+        order_status: "Order status"
+        total_price: "Total price"
+        view_all_orders: "View all orders"
+        view_all_products: "View all products"
+        recently_added_products: "Recently added products"
+        latest_orders: "Latest orders"
+        home: "Home"
+        product_type0: "Jacket"
+        product_type1: "Blazers"
+        product_type2: "Shirts"
+        product_type3: "Shirts"
+        product_type4: "T-shirts"
+        product_type5: "Pullovers"
+        product_type6: "Polo shirt"
+        product_type7: "Sweater"
+        product_type8: "Knitwear"
+        product_type9: "Pants"
+        product_type10: "Jeans"
+        product_type11: "Skirts"
+        product_type12: "Denim"
+        product_type13: "Shorts"
+        product_type14: "Suit"
+        product_type15: "Uniforms"
+        product_type16: "Dress | Jumpsuit"
+        classify0: "mans"
+        classify1: "womens"
+        classify2: "kids"
+        classify3: "shoes"
+        classify4: "bag"
+        classify5: "family"
+        classify6: "fashionables"
+        classify7: "sports"
+        classify8: "summer"
+        classify9: "winter"
+        new_comment: "New comments"
+        new_user_registrations: "New users"
+
     product_details_controller:
       update:
         not_updated: not updated 
@@ -271,7 +316,6 @@ en:
         comment_for: "Comment for"
         action: "Action"
         content: "Content"
-
   number:
     currency:
       format:

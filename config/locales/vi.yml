@@ -76,12 +76,66 @@ vi:
     View: "Xem tất cả sản phẩm" 
     Users: Người dùng
     All_products: Sản phẩm 
-    Create product: Tạo mới sản phẩm    
-
+    Create product: Tạo mới sản phẩm   
+    Orders: "Đơn hàng"
+    comments: "Bình luận"
+    Products: "Sản phẩm"
+    Dashboard: "Bảng điều khiển"
+    home: Trang chủ 
   admin:
     static_pages:
       home:
         Admin_pages: Quản Lý
+        order_status0: "Chờ xác nhận"
+        order_status1: "Hủy bởi người bán"
+        order_status2: "Đã xác nhận"
+        order_status3: "Đang xử lý"
+        order_status4: "Đang vận chuyển"
+        order_status5: "Giao thành công"
+        order_status6: "Đã hoàn tiền"
+        order_status7: "Bị hủy bởi người mua"
+        dashboard: "Bảng điều kiển"
+        new_orders: "Đơn hàng mới"
+        more_info: "Thêm thông tin"
+        order-id: "ID đơn hàng" 
+        items: "Các Sản phẩm"
+        order_status: "Trạng thái đơn hàng"
+        total_price: "Tổng tiền"
+        view_all_orders: "Xem tất cả đơn hàng"
+        view_all_products: "Xêm tất cả sản phẩm"
+        recently_added_products: "Các sản phẩm đã thêm gần đây"
+        latest_orders: "Các đơn hàng mới nhất"
+        home: "Trang chủ"
+        product_type0: "Áo khoác"
+        product_type1: "Áo blazer"
+        product_type2: "Áo sơ mi"
+        product_type3: "Áo kiểu"
+        product_type4: "Áo phông"
+        product_type5: "Áo nỉ chui đầu"
+        product_type6: "Áo polo"
+        product_type7: "Áo len"
+        product_type8: "Hàng dệt kim"
+        product_type9: "Quần âu"
+        product_type10: "Quần bò"
+        product_type11: "Chân váy"
+        product_type12: "Denim"
+        product_type13: "Quần Short"
+        product_type14: "Bộ com lê"
+        product_type15: "Trang phục đồng bộ"
+        product_type16: "Đầm | Jumpsuit"
+        classify0: "Thời trang nam"
+        classify1: "Thời trang nữ"
+        classify2: "Thời trang trẻ em"
+        classify3: "Giày"
+        classify4: "Túi "
+        classify5: "Gia đình"
+        classify6: "Xu hướng mới"
+        classify7: "Thể thao"
+        classify8: "Mùa hè"
+        classify9: "Mùa đông"
+        new_comment: "Bình luận mới"
+        new_user_registrations: "Người dùng mới"
+
     product_details_controller:
       update:
         not_updated: không thể cập nhật   
@@ -242,7 +296,6 @@ vi:
         comment_for: "Bình luận cho"
         action: "Hành động"
         content: "Nội dung"
-        
   number:
     currency:
       format:

@@ -2,12 +2,16 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>Version 2.0</small>
+        <%=t ".dashboard"%>
+     
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li>
+        	<%= link_to "#" do  %>
+            	<i class="fa fa-dashboard"></i><%=t ".home"%>
+          	<% end %>
+        </li>  	
+        <li><%= link_to (t ".dashboard"), "#"%></li>
       </ol>
     </section>
 
@@ -22,12 +26,14 @@
 	            <div class="inner">
 	              <h3><%= Order.all.count_order.count %></h3>
 
-	              <p>New Orders in 24 hours</p>
+	              <p><%=t ".new_orders"%></p>
 	            </div>
 	            <div class="icon">
-	              <i class="ion ion-bag"></i>
+	              <i class="fa fa-shopping-bag"></i>
 	            </div>
-	            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+	            <%= link_to admin_orders_path, class: "small-box-footer" do  %>
+	            	<%=t ".more_info"%> <i class="fa fa-arrow-circle-right"></i>
+	          	<% end %>
 	          </div>
 	        </div>
 	        <!-- ./col -->
@@ -35,14 +41,16 @@
 	          <!-- small box -->
 	          <div class="small-box bg-green">
 	            <div class="inner">
-	              <h3>53<sup style="font-size: 20px">%</sup></h3>
+	              <h3><%= Comment.all.count_comment.count %></h3>
 
-	              <p>Bounce Rate</p>
+	              <p><%=t ".new_comment"%></p>
 	            </div>
 	            <div class="icon">
-	              <i class="ion ion-stats-bars"></i>
+	              <i class="fa fa-comments"></i>
 	            </div>
-	            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+	            <%= link_to admin_comments_path, class: "small-box-footer" do  %>
+	            	<%=t ".more_info"%> <i class="fa fa-arrow-circle-right"></i>
+	          	<% end %>
 	          </div>
 	        </div>
 	        <!-- ./col -->
@@ -50,14 +58,16 @@
 	          <!-- small box -->
 	          <div class="small-box bg-yellow">
 	            <div class="inner">
-	              <h3><%= User.all.count %></h3>
+	              <h3><%= User.all.count_user.count %></h3>
 
-	              <p>User Registrations</p>
+	              <p><%=t ".new_user_registrations"%></p>
 	            </div>
 	            <div class="icon">
-	              <i class="ion ion-person-add"></i>
+	              <i class="fa fa-users"></i>
 	            </div>
-	            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+	            <%= link_to admin_users_path, class: "small-box-footer" do  %>
+	            	<%=t ".more_info"%> <i class="fa fa-arrow-circle-right"></i>
+	          	<% end %>
 	          </div>
 	        </div>
         </div>
@@ -69,31 +79,13 @@
       <div class="row">
         <!-- Left col -->
         <div class="col-md-8">
-          <div class="nav-tabs-custom" style="cursor: move;">
-            <!-- Tabs within a box -->
-            <ul class="nav nav-tabs pull-right ui-sortable-handle">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-            </ul>
-            <div class="tab-content no-padding">
-              <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="300" version="1.1" width="908" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="51.546875" y="261" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#aaaaaa" d="M64.046875,261H883" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="51.546875" y="202" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">7,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M64.046875,202H883" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="51.546875" y="143" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">15,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M64.046875,143H883" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="51.546875" y="84.00000000000003" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.000000000000028" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">22,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M64.046875,84.00000000000003H883" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="51.546875" y="25.00000000000003" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.000000000000028" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M64.046875,25.00000000000003H883" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="732.7425007594168" y="273.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013</tspan></text><text x="368.5422045868773" y="273.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan></text><path fill="#74a5c2" stroke="none" d="M64.046875,219.05493333333334C86.93377885783718,219.56626666666668,132.70758657351155,222.62345,155.59449043134873,221.10026666666667C178.4813942891859,219.57708333333335,224.25520200486025,209.1355825136612,247.14210586269743,206.86946666666668C269.7802390264277,204.6279825136612,315.0565053538882,204.88215,337.69463851761844,203.06986666666666C360.33277168134873,201.25758333333332,405.6090380088092,194.9129178506375,428.2471711725395,192.3712C451.13407503037666,189.80155118397084,496.9078827460511,182.51721666666668,519.7947866038883,182.6244C542.6816904617255,182.73158333333333,588.4554981773997,204.18057122040074,611.3424020352369,193.22866666666667C633.9805351989671,182.39580455373405,679.2568015264277,101.94395359116024,701.8949346901579,95.48533333333336C724.2842971597813,89.09768692449359,769.0630220990279,135.13802307692308,791.4523845686513,141.8436C814.3392884264885,148.69818974358975,860.1130961421628,147.7554,883,149.726L883,261L64.046875,261Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#3c8dbc" d="M64.046875,219.05493333333334C86.93377885783718,219.56626666666668,132.70758657351155,222.62345,155.59449043134873,221.10026666666667C178.4813942891859,219.57708333333335,224.25520200486025,209.1355825136612,247.14210586269743,206.86946666666668C269.7802390264277,204.6279825136612,315.0565053538882,204.88215,337.69463851761844,203.06986666666666C360.33277168134873,201.25758333333332,405.6090380088092,194.9129178506375,428.2471711725395,192.3712C451.13407503037666,189.80155118397084,496.9078827460511,182.51721666666668,519.7947866038883,182.6244C542.6816904617255,182.73158333333333,588.4554981773997,204.18057122040074,611.3424020352369,193.22866666666667C633.9805351989671,182.39580455373405,679.2568015264277,101.94395359116024,701.8949346901579,95.48533333333336C724.2842971597813,89.09768692449359,769.0630220990279,135.13802307692308,791.4523845686513,141.8436C814.3392884264885,148.69818974358975,860.1130961421628,147.7554,883,149.726" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="64.046875" cy="219.05493333333334" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="155.59449043134873" cy="221.10026666666667" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="247.14210586269743" cy="206.86946666666668" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="337.69463851761844" cy="203.06986666666666" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="428.2471711725395" cy="192.3712" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="519.7947866038883" cy="182.6244" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="611.3424020352369" cy="193.22866666666667" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="701.8949346901579" cy="95.48533333333336" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="791.4523845686513" cy="141.8436" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="883" cy="149.726" r="4" fill="#3c8dbc" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#eaf3f6" stroke="none" d="M64.046875,240.02746666666667C86.93377885783718,239.8072,132.70758657351155,241.35496666666666,155.59449043134873,239.1464C178.4813942891859,236.93783333333334,224.25520200486025,223.33676429872497,247.14210586269743,222.35893333333334C269.7802390264277,221.39173096539162,315.0565053538882,233.23263333333333,337.69463851761844,231.36626666666666C360.33277168134873,229.4999,405.6090380088092,209.2890577413479,428.2471711725395,207.428C451.13407503037666,205.54649107468123,496.9078827460511,214.43916666666667,519.7947866038883,216.39600000000002C542.6816904617255,218.35283333333334,588.4554981773997,232.37947613843352,611.3424020352369,223.08266666666668C633.9805351989671,213.88690947176687,679.2568015264277,148.2268241252302,701.8949346901579,142.42573333333334C724.2842971597813,136.68839079189686,769.0630220990279,170.47037838827842,791.4523845686513,176.92893333333336C814.3392884264885,183.53101172161175,860.1130961421628,190.23343333333335,883,194.66826666666668L883,261L64.046875,261Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#a0d0e0" d="M64.046875,240.02746666666667C86.93377885783718,239.8072,132.70758657351155,241.35496666666666,155.59449043134873,239.1464C178.4813942891859,236.93783333333334,224.25520200486025,223.33676429872497,247.14210586269743,222.35893333333334C269.7802390264277,221.39173096539162,315.0565053538882,233.23263333333333,337.69463851761844,231.36626666666666C360.33277168134873,229.4999,405.6090380088092,209.2890577413479,428.2471711725395,207.428C451.13407503037666,205.54649107468123,496.9078827460511,214.43916666666667,519.7947866038883,216.39600000000002C542.6816904617255,218.35283333333334,588.4554981773997,232.37947613843352,611.3424020352369,223.08266666666668C633.9805351989671,213.88690947176687,679.2568015264277,148.2268241252302,701.8949346901579,142.42573333333334C724.2842971597813,136.68839079189686,769.0630220990279,170.47037838827842,791.4523845686513,176.92893333333336C814.3392884264885,183.53101172161175,860.1130961421628,190.23343333333335,883,194.66826666666668" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="64.046875" cy="240.02746666666667" r="4.12" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="155.59449043134873" cy="239.1464" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="247.14210586269743" cy="222.35893333333334" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="337.69463851761844" cy="231.36626666666666" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="428.2471711725395" cy="207.428" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="519.7947866038883" cy="216.39600000000002" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="611.3424020352369" cy="223.08266666666668" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="701.8949346901579" cy="142.42573333333334" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="791.4523845686513" cy="176.92893333333336" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="883" cy="194.66826666666668" r="4" fill="#a0d0e0" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 21.0234px; top: 154px;"><div class="morris-hover-row-label">2011 Q1</div><div class="morris-hover-point" style="color: #a0d0e0">
-				  Item 1:
-				  2,666
-				</div><div class="morris-hover-point" style="color: #3c8dbc">
-				  Item 2:
-				  2,666
-				</div></div></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"><svg height="300" version="1.1" width="938" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#3c8dbc" d="M469,243.33333333333331A93.33333333333333,93.33333333333333,0,0,0,557.227755194977,180.44625304313007" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#3c8dbc" stroke="#ffffff" d="M469,246.33333333333331A96.33333333333333,96.33333333333333,0,0,0,560.0636473262442,181.4248826052307L596.6151459070204,194.03833029452744A135,135,0,0,1,469,285Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#f56954" d="M557.227755194977,180.44625304313007A93.33333333333333,93.33333333333333,0,0,0,385.28484627831415,108.73398312817662" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#f56954" stroke="#ffffff" d="M560.0636473262442,181.4248826052307A96.33333333333333,96.33333333333333,0,0,0,382.59400205154566,107.40757544301087L343.42726941747117,88.10097469226493A140,140,0,0,1,601.3416327924656,195.6693795646951Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#00a65a" d="M385.28484627831415,108.73398312817662A93.33333333333333,93.33333333333333,0,0,0,468.97067846904883,243.333328727518" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#00a65a" stroke="#ffffff" d="M382.59400205154566,107.40757544301087A96.33333333333333,96.33333333333333,0,0,0,468.96973599126824,246.3333285794739L468.9575884998742,284.9999933380171A135,135,0,0,1,347.9120097954186,90.31165416754118Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="469" y="140" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(1,0,0,1,0,0)"><tspan dy="140" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">In-Store Sales</tspan></text><text x="469" y="160" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(1,0,0,1,0,0)"><tspan dy="160" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan></text></svg></div>
-            </div>
-          </div>
+          
           <!-- /.row -->
 
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
+              <h3 class="box-title"><%=t ".latest_orders"%></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -107,78 +99,42 @@
                 <table class="table no-margin">
                   <thead>
                   <tr>
-                    <th>Order ID</th>
-                    <th>Item</th>
-                    <th>Status</th>
-                    <th>Popularity</th>
+                    <th><%=t ".order-id"%></th>
+                    <th><%=t ".items"%></th>
+                    <th><%=t ".order_status"%></th>
+                    <th><%=t ".total_price"%></th>
                   </tr>
                   </thead>
-                  <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
+
+                  <% @orders[0,6].each do |order| %>
+                  	<% order_details = order.order_details %>
+                  	<tbody>
+                  	<tr>
+                    	<td><a href="#"><%=order.id%></a></td>
+                    	<td>
+                    		<%product_names = order_details.map{|order_detail| 
+                    			Product.find_by(id: order_detail.product_id).name }.uniq %>
+                    		<% product_names.each do |product_name| %>
+                    			<%= product_name%>,
+                    		<%end%>
+
+                    	</td>
+                    	<td><span class = "label <%=order.order_status%>">
+                    			<%=t ".order_status"+Order.order_statuses[order.order_status].to_s %>
+                    		</span>
+	                    </td>
+                        <th><%=number_to_currency(order.total_price)%></th>                   			
                   </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas></div>
-                    </td>
-                  </tr>
+                  <% end %>
+
                   </tbody>
                 </table>
               </div>
               <!-- /.table-responsive -->
             </div>
             <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+            <div class="box-footer text-center">
+            	<%= link_to (t ".view_all_orders"), admin_orders_path%>
             </div>
             <!-- /.box-footer -->
           </div>
@@ -190,7 +146,7 @@
           <!-- PRODUCT LIST -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Recently Added Products</h3>
+              <h3 class="box-title"><%=t ".recently_added_products"%></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -201,27 +157,33 @@
             <!-- /.box-header -->
             <div class="box-body">
               <ul class="products-list product-list-in-box">
-                <% @admin_displays.each do |product| %>
-                <li class="item">
-                  <div class="product-img">
-                  <%= image_tag product.image[0] if product.image.attached? %>
-                  </div>
-                  <div class="product-info">
-                    <%= link_to product.name, product %>
-                    <span class="product-description">
-                         
-                        </span>
-                  </div>
-                </li>
+              	<% @products[0,4].each do |product| %>
+	                <% product_detail_prices = product.product_details.map{ |product_detail| product_detail.price }.uniq%>
+	                <li class="item">
+	                  <div class="product-img">
+	                    <%=image_tag product.image.first if product.image.attached? %>
+	                  </div>
+	                  <div class="product-info">
+	                    <a href="javascript:void(0)" class="product-title"><%=product.name%>
+	                      <span class="label label-warning pull-right">
+	                      	<% if product_detail_prices.length == 1%>
+		                      <th><%=number_to_currency(product_detail_prices.first)%></th>
+		                    <% else %>
+		                      <th><%=number_to_currency(product_detail_prices.min)%> - <%=number_to_currency(product_detail_prices.max)%></th>
+		                    <%end%>                     		
+	                      </span></a>
+	                    <span class="product-description">
+	                    	<%=t ".product_type"+Product.product_types[product.product_type].to_s %>,
+	                    	<%=t ".classify"+Product.classifies[product.classify].to_s %>
+	                    </span>
+	                  </div>
+	                </li>
                 <% end %>
-                <!-- /.item -->
-               
-                <!-- /.item -->
               </ul>
             </div>
             <!-- /.box-body -->
             <div class="box-footer text-center">
-            	<%= link_to t("links.View"), admin_products_path, class: "uppercase" %>
+            	<%= link_to (t ".view_all_products"), admin_products_path%>
             </div>
             <!-- /.box-footer -->
           </div>

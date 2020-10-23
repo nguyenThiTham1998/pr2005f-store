@@ -7,7 +7,7 @@ class User < ApplicationRecord
 	scope :order_by_time,->{ order(created_at: :desc) }	
 	scope :order_by_orders, -> { left_joins(:orders).group(:user_id).order('COUNT(orders.id) DESC')}
 	has_one :cart
-
+	scope :count_user, -> {where('created_at >=?', 24.hour.ago)}
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable,
