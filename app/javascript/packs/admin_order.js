@@ -1,10 +1,10 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function() {
   $('#checkAll').click(function () {    
     $('input:checkbox').prop('checked', this.checked);   
   });
 });
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('.update-status').click(function () { 
 
     alert("Update the status of these orders");
