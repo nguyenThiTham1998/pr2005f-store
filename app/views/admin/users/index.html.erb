@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        <small>All users</small>
+        <small>User management</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -17,7 +17,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">User management</h3>
+              <h3 class="box-title">All users</h3>
               <div class="box-tools">
                 <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
@@ -33,7 +33,7 @@
               <table class="table table-hover">
                 <tbody><tr>
                   <th>ID</th>
-                  <th>Email</th>
+                  <th>User name</th>
                   <th>Role for</th>
                   <th>Shipping address</th>
                   <th>Orders</th>
@@ -42,10 +42,10 @@
 
                 <% @users.each do |user| %>
                   <% orders = user.orders %>
-				  <% comments = user.comments %>
+				          <% comments = user.comments %>
                   <tr>
                     <td><%=user.id%></td>
-                    <td><%=user.email%></td>
+                    <td><%=user.fullname%></td>
                     <td>
                     	<% if user.admin?%>
                     		Admin
@@ -54,10 +54,10 @@
                     	<% end %>                   	
                     </td>
                     <td>
-                      <%if !user.fullname.nil?%>
+                      <%if user.fullname.present?%>
                         <%=user.fullname%>,
                       <%end%>
-                      <%if !user.fullname.nil?%>
+                      <%if user.fullname.present?%>
                     	  <%=user.phone%>,
                       <%end%>
                     	<%=user.address%>
