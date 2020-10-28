@@ -72,7 +72,6 @@ vi:
       password: "Mật khẩu"
       password_confirmation: Nhắc lại mật khẩu  
       text: nhập giá trị cần tìm kiếm  
-      password_confirmation: Nhắc lại mật khẩu
   links:
     View: "Xem tất cả sản phẩm" 
     Users: Người dùng
@@ -365,3 +364,8 @@ vi:
       order: Don hang
       signed_name: Ten dang nhap
       phone: So dien thoai
+    user:
+      address: Địa chỉ 
+      fullname: Họ Tên
+      phone: Điện Thoại
+   

@@ -68,7 +68,7 @@ en:
       name: name
       password: Password
       password_confirmation : "Password_confirmation"
-      text: text  
+      text: products  
   links:
     View: "View All Products" 
     Users: Users 
@@ -377,4 +377,8 @@ en:
       order: Order
       signed_name: signed_name
       phone: phone  
+    user:
+      address: address  
+      fullname: fullname
+      phone: phone
   

@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::ApplicationController
 	end
 	
 	def index
-		@users = User.all.order_by_time.paginate(:page => params[:page], :per_page => Settings.limit_user)	
+		@users = User.all.includes(:comments, :orders).order_by_time.paginate(:page => params[:page], :per_page => Settings.limit_user)	
 	end	
 
 end	

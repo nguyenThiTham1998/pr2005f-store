@@ -31,22 +31,30 @@ Rails.application.routes.draw do
         get '/home', to: 'pages#index'
         resources :products do 
           resources :product_details 
+          resources :comments 
         end 
 
         get "/search", to: "searchs#index"
-          resources :comments 
+        get "admin/search", to: "admin/searchs#index"
+        resources :comments 
 
 
         namespace :admin do
             get 'static_pages/home'
             resources :products do
               resources :product_details 
-
-            end      
+            end  
+        resources :product_details                        
+        resources :orders         
+        resources :users     
+        resources :comments     
         end
     end 
-    devise_for :users,
-                    path: '',
-                    path_names: {sign_in: 'login' ,sign_out: 'logout' ,edit: 'profile',sign_up: 'resgistration'},
-                    controllers: {omniauth_callbacks: 'omniauth_callbacks' }  
+    devise_for :users,  
+              controllers: {           
+                sessions: 'users/sessions'           
+              },            
+              path: '', 
+              path_names: {sign_in: 'login' ,sign_out: 'logout' ,edit: 'profile',sign_up: 'resgistration'},    
+              controllers: {omniauth_callbacks: 'omniauth_callbacks' }  
 end

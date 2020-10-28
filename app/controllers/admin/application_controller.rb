@@ -3,8 +3,14 @@ class Admin::ApplicationController < ActionController::Base
     before_action :check_login
   	before_action :require_admin
 	before_action :set_locale
+	before_action :search
+
+	
   
   	private
+  	def search
+		@q = Product.includes(:image_attachments).ransack(params[:q])
+  	end 
 
 	def check_login
 	 	if user_signed_in? 
@@ -13,7 +19,7 @@ class Admin::ApplicationController < ActionController::Base
 	 		redirect_to root_url
 	 	end
 	end 	
-
+	
 	def require_admin
 		unless current_user.admin?
 		  redirect_to root_path

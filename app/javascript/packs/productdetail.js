@@ -29,4 +29,20 @@ $(document).on('turbolinks:load', function(){
 		    })
 
     })
-})
+});
+
+
+$(document).on('turbolinks:load', function(){
+	$(document).on('click', '.search-admin', function(){
+        $.ajax({
+          url: '/admin/search',
+          type: 'get',
+          dataType: 'json',
+          data: {    
+            search: $("#search-admin").val()
+          },
+          success: function(data){
+          }
+        })
+      })
+    });
