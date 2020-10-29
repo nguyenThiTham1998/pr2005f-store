@@ -1,0 +1,62 @@
+
+<% if current_user.orders.present? %>
+	<% order.order_details.each do|order_detail| %>
+		<% product_detail= ProductDetail.find_by order_detail.product_detail_id.to_s %>
+
+			<tr >
+				<td >
+					<a href=""><img src="images/cart/one.png" alt=""></a>
+				</td>
+				<td>
+					<h4><%= product_detail.product.name %></h4>
+				</td>
+				<td  >
+					<%= number_to_currency(product_detail.discount_price )%>
+				</td>
+
+				<td >
+					<input type="hidden" class= "value-size-<%= product_detail.id %>" value = "<%= product_detail.size %>" > 
+					<%= product_detail.size %>
+					
+					, <span id = "color-<%= product_detail.id %>" ><%= product_detail.color %></span>
+				</td>
+
+
+				<td class= "quality-correct">
+						
+						<%= order_detail.quality %>
+				</td>
+				<td>
+					<%= number_to_currency(product_detail.discount_price*order_detail.quality.to_i)%>
+					
+				</td>	
+				
+			</tr>
+	<% end %>	
+			<tr >
+				<td colspan="6" class="total-oder" >
+					<%= t(".total_price") %> 
+					<b><%=number_to_currency(order.total_price)%></b>
+				</td>	
+			</tr>
+			<tr class ="correct" >
+				<td class ="return-status" colspan="2"><%= order.order_status %></td>
+					
+				<td  colspan="4">
+					<%if order.Awaiting?%>
+						<input value="6" type="hidden" name="order[order_status]"
+							id= "order_order_status<%= order.id%>" >
+						<button_tag class= "cancel-order2 btn btn-success" 
+							data-id = "<%=order.id %>" name=""> 
+							<%= t("orders.order.cancel") %>
+						</button_tag> 
+					<%#elsif order.Cacelbuyer?%>
+						<%#=# link_to "MUA THEM LAN NUA", add_products_to_cart(current_cart)%>
+					<%#end%>			
+					<%end%>
+					<span class="text-correct">
+						<%= link_to "CHI TIET DON HANG", order_path(order) %>	
+					</span>
+				</td>
+			</tr>	
+<% end %>

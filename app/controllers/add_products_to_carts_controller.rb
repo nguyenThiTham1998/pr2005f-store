@@ -2,6 +2,7 @@ class AddProductsToCartsController < ApplicationController
 	before_action :authenticate_user!
 	
 	def update
+
 		@product_detail = ProductDetail.find_by product_id: params[:id], size: params[:size], color: params[:color]
 		if @product_detail.present?
 			id_product_detail = @product_detail.id
@@ -42,10 +43,9 @@ class AddProductsToCartsController < ApplicationController
 		 end
 	end
 
-	def destroy	
+	def destroy
 		id_product_detail = params[:id]
-		@hash_content = current_cart.content.reject!{|key, value| 
-			key == "#{id_product_detail}"}
+		@hash_content = current_cart.content.reject!{|key, value| key == "#{id_product_detail}"}
 		if @hash_content.empty?
 			@hash_content =  nil
 		end

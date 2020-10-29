@@ -1,42 +1,46 @@
-					
-<head>
 
-    <title>Cart | E-Shopper</title>
- 
-</head><!--/head-->
+<section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li class="active"><%=t ("carts.index.Payment")%></li>
+			</ol>
 
-<body>
-	
-		
-		
+		</div>
+		<div class="table-responsive cart_info">
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image"><%=t ("carts.show.Item")%></td>
+						<td class="description"></td>
+						<td class="price"><%=t ("carts.show.Price")%></td>
+						<td class="price"><%=t ("carts.show.Kind")%></td>
+						<td class="quantity"><%=t ("carts.show.Quantity")%></td>
+						<td class="total"><%=t ("carts.show.Total")%></td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
 
-	<section id="cart_items">
-		<div class="container">
-			<div class="breadcrumbs">
-				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
-				  <li class="active">Shopping Cart</li>
-				</ol>
-			</div>
-			<div class="table-responsive cart_info">
-				<table class="table table-condensed">
-					<thead>
-						<tr class="cart_menu">
-							<td class="image">Item</td>
-							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="price">Phan loai</td>
-							<td class="quantity">Quantity</td>
-							<td class="total">Total</td>
-							<td></td>
-						</tr>
-					</thead>
-					<tbody>
-									
-								<%= render "carts/cart" %>
-											
-					</tbody>
-				</table>
+					<%= render "carts/buy" %>
+				</tbody>
+			</table>
+			<hr>
+			<div class="payment">						
+				<div><%=t ("carts.index.delivery_cost")%>:
+				 	<%=number_to_currency(30000)%>	
+				 </div>
+				<div ><%=t ("carts.index.total_money")%>:
+					 <%= number_to_currency(total_payment) %>	
+				 </div>
+				<div class="cash"> <%=t ("carts.index.payment_total")%>:
+					<b class="color"> <%=number_to_currency(30000+@sum) %></b>
+				</div>
 			</div>
 		</div>
-	</section> <!--/#cart_items-->
+		
+		<p> <%= link_to (t ".order"), new_order_path , class: "btn btn-lg btn-primary" %></p>
+	</div>
+
+</section> 

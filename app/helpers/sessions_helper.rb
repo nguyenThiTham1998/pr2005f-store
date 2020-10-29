@@ -19,4 +19,5 @@ module SessionsHelper
 		end	
 			@current_cart
 	end
+
 end

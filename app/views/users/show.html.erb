@@ -1,6 +1,56 @@
-<p>
-	<%= @user.email %>
-</p>
-<p><%= @user.fullname %></p>
-<%= image_tag @user.image if @user.image.attached? %>
+<%if current_user.present?%>
+<div class="container">
+  <div class="row">
+	    <div class="col-sm-3" class="table-responsive" >
+	    	<div> haha</div>
+	    	<table class="table">
+		    	<tr>
+			      	<td>
+			      		<button class ="account_correct"> <%= t('users.show.account')%></button>
+			      	</td>
+			     </tr>
+	     	 	<tr>
+			      	<td>
+			      		<button class ="address_correct"><%= t('users.show.address')%> </button>
+			      	</td>
+			     </tr>
+			     <tr>
+			      	<td>
+			      		<button class="ordered"> <%= t('users.show.order')%></button>
+			      	</td>
+			     </tr>
+	     	</table>
+	    </div>
+	    <div class="col-sm-9" class="table-responsive" >
+	      <table  class="table" class="auto" id= "table-respond" style="border-collapse: collapse;">
+	      	<tr>
+		      	<td>
+		      		<%= t('users.show.signed_name')%>: <%= current_user.fullname%>
 
+		      	</td>
+		     </tr>
+		     <tr>
+		      	<td>
+		      		Email: <%= current_user.email%>
+
+		      	</td>
+		     </tr>
+
+			     <tr>
+			      	<td>
+			      		<%= t('users.show.phone')%>:<%= current_user.phone%>
+
+			      	</td>
+			     </tr>
+			     <tr>
+			      	<td>
+			      		<%= t('users.show.address')%>: <%= current_user.address%>
+
+			      	</td>
+			     </tr>
+	      </table>
+	
+	    </div>
+  </div>
+</div>
+<%end%>

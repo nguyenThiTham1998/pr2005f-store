@@ -4,12 +4,9 @@
           <input value="<%= @comment.product.present? ? @comment.product.id : product.id  %>" type="hidden" name="comment[product_id]" class ="comment_product_id" data-id="<%=parent_id%>">
           <input placeholder="<%=current_user.email %>" required="required" class="form-control add-comment comment_content" type="text"
              name="comment[content]" data-id="<%=parent_id%>">
-
-
       <br>
       <br>
-        <center ><input type="button" name="commit" value="comment" class="btn btn-success post-comment" 
-          data-id="<%=parent_id%>" ></center> 
+        <center ><input type="button" name="commit" value="comment" class="btn btn-success post-comment" data-id="<%=parent_id%>" ></center> 
     
   </div> 
 

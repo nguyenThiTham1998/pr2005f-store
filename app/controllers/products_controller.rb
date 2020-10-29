@@ -39,12 +39,7 @@ class ProductsController < ApplicationController
 	def find_product
 		@product = Product.find_by id: params[:id]
 		if @product.nil?
-
-			redirect_to root_url
-			flash[:danger] = t ".not_updated"
-
-			redirect_to root_url, notice: t('.notice')
-			
+			redirect_to root_url, notice: t('products.show.notice')
 		end
 	end			
 

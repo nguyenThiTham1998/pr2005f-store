@@ -1,59 +1,44 @@
 <% if current_cart.content.present? %>
 	<% current_cart.content.each do|key, value| %>
-		<% @product_detail= ProductDetail.find_by id:"#{key}" %>
 
-			<tr class ="xoa-<%= @product_detail.id %>">
-				<td class="cart_product">
-					<a href=""><img src="images/cart/one.png" alt=""></a>
-				</td>
-				<td class="cart_description">
-					<h4><%= @product_detail.product.name %></h4>
-					<p >ID<%= "#{key}" %></p>
-				</td>
-				<td class="cart_price" >
-					<% if @product_detail.discount.nil?  %>
-						<p id ="unit-price-<%= @product_detail.id %>" >
-							<%= @product_detail.price %>		
-							
-						</p>
-					<% else %>
-						<span style = "text-decoration: line-through;">
-							<%= @product_detail.price %>	
-						</span>
-						<span id ="unit-price-<%= @product_detail.id %>" >
-							<%= @product_detail.discount_price %>	
-						</span>
-					<% end %>
-				</td>
+		<% product_detail= ProductDetail.find_by id: key %>
 
-				<td class="price">
-					<input type="hidden" class= "value-size-<%= @product_detail.id %>" value = "<%= @product_detail.size %>" > 
-						<%= @product_detail.size %>
-					, <span id = "color-<%= @product_detail.id %>" ><%= @product_detail.color %></span>
-				</td>
+		<tr class ="xoa-<%= product_detail.id %>">
+			<td class="cart_product">
+				<a href=""><img src="images/cart/one.png" alt=""></a>
+			</td>
+			<td class="cart_description">
+				<h4><%= product_detail.product.name %></h4>
+			</td>
+			<td class="cart_price" >
+				<p id ="unit-price-<%= product_detail.id %>" ><%= number_to_currency(product_detail.discount_price )%></p>
+			</td>
+
+			<td class="price">
+				<input type="hidden" class= "value-size-<%= product_detail.id %>" value = "<%= product_detail.size %>" > 
+					<%= product_detail.size %>
+				, <span id = "color-<%= product_detail.id %>" ><%= product_detail.color %></span>
+			</td>
 
 
-				<td class="cart_quantity"  >
-					<div class="cart_quantity_button">
-						<button class="add-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product_id %>" 
-							> + </button>
-						<input class="quantity-<%= @product_detail.id %>" name="quantity" value= "<%= value  %>" autocomplete="off" >
-						<button class="minus-key" data-iddetail="<%= @product_detail.id %>" data-idproduct= "<%= @product_detail.product_id %>" > - </button>
-					</div>
-				</td>
-				<td class="cart_total">
-					<% if @product_detail.discount.nil?  %>
-						<p id="cart_total_price-<%= @product_detail.id %>"><%="#{value}".to_i*@product_detail.price%> </p>
-					<% else %>
-						<p id="cart_total_price-<%= @product_detail.id %>"><%="#{value}".to_i*@product_detail.price%> </p>
-					<% end  %>				
-				</td>
-				<td class="cart_delete-<%= @product_detail.id %>">
-					<button class="delete-product" data-id = "<%= @product_detail.id %>">X</button>
-				</td>
-			</tr>
-
-	<% end %>	
-	
-<% end %>
+			<td class="cart_quantity"  >
+				<div class="cart_quantity_button">
+					<button class="add-key" data-iddetail="<%= product_detail.id %>" data-idproduct= "<%= product_detail.product_id %>" 
+						> + </button>
+					<input class="quantity-<%= product_detail.id %>" name="quantity" value= "<%= value  %>" autocomplete="off" >
+					<button class="minus-key" data-iddetail="<%= product_detail.id %>" data-idproduct= "<%= product_detail.product_id %>" > - </button>
+				</div>
+			</td>
+			<td class="cart_total">
+				<p id="cart_total_price-<%= product_detail.id %>">
+					<%= number_to_currency(product_detail.discount_price*value.to_i)%> 
+				</p>
+				
+			</td>
+			<td class="cart_delete-<%= product_detail.id %>">
+				<button class="delete-product" data-id = "<%= product_detail.id %>">X</button>
+			</td>
+		</tr>
+	<%end%>
+<%end%>
 

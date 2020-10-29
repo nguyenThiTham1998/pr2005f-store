@@ -8,7 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('admin-lte')
-
+require("jquery")
+import "bootstrap"
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
@@ -18,7 +19,7 @@ require('admin-lte')
 //= require main
 //= require price-range
 //= require_tree
-
+import 'packs/order_show.js';
 import 'packs/addproducttocart.js';
 import 'packs/cart.js';
 import 'packs/comment.js';

@@ -2518,4 +2518,71 @@ h2.title {
   color: #FE980F;
 }
 
+.cash{
+  float: right;
+  padding-right: 10px;
+  padding-bottom:10px;
+  padding-top:10px;
+  front-size: 150%;
+  b{
+    color:red;
+    
+  }
+}
+.payment{
+  float:right;
+  padding:20px;
+}
+.staus_order{
+  color:red;
+}
+.status_order{
+  float:right;
+}
+.status_myorder{
+  float: right;
+}
 
+.table-responsive{
+  overflow-x: auto;
+}
+.table-item{
+  border: 1px solid #dee2e6;
+}
+.total-oder{
+  text-align: right;
+  
+  b{
+   color:red; 
+   font-size: 20px!important;
+  }
+}
+.correct{
+  border-bottom: 1pt solid black;
+  height:20px;
+}
+
+.quality-correct{
+  width:50px;
+}
+.buy-add{
+  text-align: right;
+  height:30px;
+}
+td {  
+  padding-top:20px;
+}
+.text-correct{
+  float: right;
+  padding-right: 10px;
+}
+.status2{
+  text-align:right;
+}
+.cancel_order2{
+  float: right;
+  padding-left: 5px;
+}
+.correct{
+   border-bottom: 1px solid;
+}

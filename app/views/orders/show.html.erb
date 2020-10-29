@@ -1,0 +1,44 @@
+<%if !@order.nil?%>
+	<div class="container">
+			<table class="table table-condensed">
+				<p class="status_order"><%= @order.order_status %><p>
+				<%= render "shared/feed_iterm" %>
+			</table>
+			<table class="table table-condensed">
+	
+				<tr>
+					<td class="status2"><%= t("orders.show.total_payment")%>:
+					 	<%=number_to_currency(@order.total_price) %>
+					 </td>
+				</tr>
+				<tr>
+					<td class="staus_order_add">
+						<%= t("orders.show.order_status")%>: <%= @order.order_status %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input value="6" type="hidden" name="order[order_status]" id= "order_order_status<%= @order.id%>" >
+						<%if @order.Awaiting? %>
+							<input class= "cancel_order" data-id = "<%=@order.id %>" type="button" name="" value = "Huy don hang">
+						<%end%>
+					</td>
+				</tr>		 
+			</table>
+
+			<table class="table table-condensed">
+				<tr>
+					<td>
+							<b><%= t("orders.show.address")%></b>:
+							<p><%=@order.address%></p>
+							<p><%=@order.phone%></p>
+							<p><%= current_user.fullname%></p>
+					</td>
+				</tr>
+			</table>
+	</div>
+<%end%>
+
+
+
+	

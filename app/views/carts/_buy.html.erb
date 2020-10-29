@@ -1,0 +1,41 @@
+<% if current_cart.content.present? %>
+	<% current_cart.content.each do|key, value| %>
+		<% product_detail= ProductDetail.find_by id:key %>
+
+			<tr class ="xoa-<%= product_detail.id %>">
+				<td class="cart_product">
+					<a href=""><img src="images/cart/one.png" alt=""></a>
+				</td>
+				<td class="cart_description">
+					<h4><%= product_detail.product.name %></h4>
+					<p >ID<%= "#{key}" %></p>
+				</td>
+				<td class="cart_price" >
+					<p id ="unit-price-<%= product_detail.id %>" ><%= number_to_currency(product_detail.discount_price )%></p>
+				</td>
+
+				<td class="price">
+					<input type="hidden" class= "value-size-<%= product_detail.id %>" value = "<%= product_detail.size %>" > 
+					<%= product_detail.size %>
+						
+					, <span id = "color-<%= product_detail.id %>" ><%= product_detail.color %></span>
+				</td>
+
+				<td class="cart_quantity"  >
+					<div class="cart_quantity_button">
+						<%=value %>	
+					</div>
+				</td>
+				<td class="cart_total">
+					<p id="cart_total_price-<%= product_detail.id %>">
+						<%= number_to_currency(product_detail.discount_price*value.to_i)%> 
+					</p>
+					
+				</td>
+				
+			</tr>
+
+	<% end %>	
+	
+<% end %>
+

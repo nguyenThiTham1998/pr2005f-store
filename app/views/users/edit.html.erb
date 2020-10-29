@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(current_user) do |f| %>
+		<%= f.label :hoten %>
+		<%= f.text_field :hoten, class: 'form-control' %>
+		<%= f.label :address %>
+		<%= f.text_field :address, class: 'form-control' %>
+		<%= f.label :phone %>
+		<%= f.text_field :phone, class: 'form-control' %>
+		<%= f.submit "Save changes", class: "btn btn-primary" %>
+	<% end %>
+	</div>
+</div>

@@ -72,6 +72,7 @@ vi:
       password: "Mật khẩu"
       password_confirmation: Nhắc lại mật khẩu  
       text: nhập giá trị cần tìm kiếm  
+      password_confirmation: Nhắc lại mật khẩu
   links:
     View: "Xem tất cả sản phẩm" 
     Users: Người dùng
@@ -148,7 +149,6 @@ vi:
         Update_date: Cập nhật           
         Create_date: Khởi tạo         
         edit: chỉnh sửa 
-        not_found: not found 
       update:
         Product_updated: sản phẩm đã được thay đổi
       index:
@@ -287,7 +287,8 @@ vi:
         comment_for: "Bình luận cho"
         action: "Hành động"
         content: "Nội dung"
-        
+      create:
+        Order sucessful: "Dat hang thanh cong"
   number:
     currency:
       format:
@@ -309,5 +310,58 @@ vi:
   product_details:
     show:
       Add_to_cart: Thêm vào giỏ hàng 
+  orders:
+    order:
+      total_price: "Tong tien"
+      cancel: "Huy don hang"
+    show: 
+      notice: "Khong tim thay don hang" 
+      checkout: "Don hang vua mua" 
+      my_order: "Don hang cua ban"
+      order_status: Trang thai don hang
+      address: "Dia chi giao hang"
+      total_payment: "Tong so tien thanh toan"
+      order_status0: "Chờ xác nhận"
+      order_status1: "Hủy bởi người bán"
+      order_status2: "Đã xác nhận"
+      order_status3: "Đang xử lý"
+      order_status4: "Đang vận chuyển"
+      order_status5: "Giao thành công"
+      order_status6: "Đã hoàn tiền"
+      order_status7: "Bị hủy bởi người mua"
+      update_message: "Cập nhật trạng thái các đơn hàng này" 
+    create:
+      notice: "Dat hang thanh cong"
+    new:
+      address: "Dia chi giao hang"     
+      phone: "So dien thoai"
+      createorder: "DAT HANG"
 
-
+  carts:
+    show:
+      Item: "Mat hang"
+      Price: Gia
+      Kind: Chung loai
+      Quantity: So luong
+      Total: Tong gia
+      BUY: MUA HANG
+      Cart: "Gio hang"
+    index:
+      order: "DAT HANG"
+      notice: "Vui long chon san pham mua"
+      Payment: "THANH TOAN"
+      delivery_cost: "Chi phi van chuyen"
+      total_money: "Tong tien hang"
+      payment_total: "Tong thanh toan"
+  label:  
+      order:
+        address: "Dia chi giao hang:"
+        phone: "So dien thoai"
+  
+  users:
+    show:
+      account: Tai khoan cua toi
+      address: Dia chi
+      order: Don hang
+      signed_name: Ten dang nhap
+      phone: So dien thoai

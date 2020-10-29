@@ -1,0 +1,34 @@
+<tr class ="xoa-<%= product_detail.id %>">
+	<td class="cart_product">
+		<a href=""><img src="images/cart/one.png" alt=""></a>
+	</td>
+	<td class="cart_description">
+		<h4><%= product_detail.product.name %></h4>
+		<p >ID<%= product_detail.product.id %></p>
+	</td>
+	<td class="cart_price" >
+		<p id ="unit-price-<%= product_detail.id %>" ><%= number_to_currency(product_detail.price)%></p>
+	</td>
+
+	<td class="price">
+		
+		<%= product_detail.size %>
+		
+		, <span id = "color-<%= product_detail.id %>" ><%= product_detail.color %></span>
+	</td>
+
+
+	<td class="cart_quantity"  >
+		<div class="cart_quantity_button">
+			
+			<%= order_detail.quality %>
+			
+		</div>
+	</td>
+	<td class="cart_total">
+		<p id="cart_total_price-<%= product_detail.id %>"><%= number_to_currency(product_detail.price*order_detail.quality.to_i)%> </p>
+		
+		<%@sum += product_detail.price*order_detail.quality.to_i%>
+	</td>
+				
+</tr>

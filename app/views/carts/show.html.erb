@@ -1,0 +1,71 @@
+
+	<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href=""><i class="fa fa-facebook"></i></a></li>
+								<li><a href=""><i class="fa fa-twitter"></i></a></li>
+								<li><a href=""><i class="fa fa-linkedin"></i></a></li>
+								<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+								<li><a href=""><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+		
+		
+	
+		<section id="cart_items">
+			<div class="container">
+				<div class="breadcrumbs">
+					<ol class="breadcrumb">
+					  <li><a href="#">Home</a></li>
+					  <li class="active"><%=t ("carts.show.Cart")%></li>
+					</ol>
+				</div>
+				<div class="table-responsive cart_info">
+					<table class="table table-condensed">
+						<thead>
+							<tr class="cart_menu">
+								<td class="image"><%=t ("carts.show.Item")%></td>
+								<td class="description"></td>
+								<td class="price"><%=t ("carts.show.Price")%></td>
+								<td class="price"><%=t ("carts.show.Kind")%></td>
+								<td class="quantity"><%=t ("carts.show.Quantity")%></td>
+								<td class="total"><%=t ("carts.show.Total")%></td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<%= render "carts/cart" %>
+						</tbody>
+					</table>
+				</div>
+						<p class="dia_chi">
+							<%= link_to carts_path,
+								class: "btn btn-lg btn-primary", method: :get do %>
+								<%= t ("carts.show.BUY") %>
+							<% end %>
+						</p>
+				
+			</div>
+
+		</section>
+
+
+
+
+

@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="breadcrumbs">
+	<%if !current_cart.content.nil?%>
+		 <% @sum= 0%>
+		<% current_cart.content.each do|key, value| %>
+			<% product_detail= ProductDetail.find_by id: key%>
+			<%@sum += product_detail.price*value.to_i%>
+		<%end%>
+			<%@sum += 30000%>
+		<%= form_for @order do |f| %>
+			<%= f.label :address, t("label.order.address") %>
+		  	<%= f.text_field :address,value: current_user.address ,class: 'form-control' %>
+		  	<%= f.label :phone, t("label.order.phone") %>
+		  	<%= f.text_field :phone ,value: current_user.phone, class: 'form-control'%>
+		  	<%= f.hidden_field :total_price, value:@sum  %>
+		  	<%= f.hidden_field :order_status, value: 0 %>
+		  	<%= f.hidden_field :user_id, value: current_user.id %>
+			<% current_cart.content.each do|key, value| %>
+		    	<%= f.fields_for :order_details do |ff| %>
+		           <%= ff.hidden_field :quality, value: value %>
+		           <%= ff.hidden_field :product_detail_id, value: key %>
+		           <%= ff.hidden_field :order_id, value: @order.id %>
+			    <% end %>
+		    <% end %>
+		    <%= f.submit (t ".createorder") %>
+		 <% end %>
+	</div>
+	<%end%>
+</div>
+
+

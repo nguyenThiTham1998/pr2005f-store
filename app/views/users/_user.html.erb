@@ -1,0 +1,38 @@
+<%if params[:address_id].present? %>
+	<tr>
+		<td>
+			<%= t('users.phone')%>:<%= current_user.phone%>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Dia chi: <%= current_user.address%>
+
+		</td>
+	</tr>
+<%else%>
+	<tr>
+		<td>
+			Email: <%= current_user.email%>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Ho ten: <%= current_user.fullname%>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Số Điện Thoại: <%= current_user.phone%>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Dia chi: <%= current_user.address%>
+
+		</td>
+	</tr>
+<%end%>

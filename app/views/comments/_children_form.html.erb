@@ -18,7 +18,6 @@
   $(document).on('turbolinks:load', function() {
   	var parent_id = document.getElementById('comment_parent_id');
     $('#post-comment'+parent_id).click(function(){
-      debugger
         var url = window.location.pathname;
         var product_id = url.substring(url.lastIndexOf('/') + 1);
        

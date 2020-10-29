@@ -1,6 +1,12 @@
-$(document).on('turbolinks:load', function(){
+
+$(document).ready(function(){
   
-   
+    const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'VND',
+    minimumFractionDigits: 2
+  })
+
   $(".add-key").click(function(){
  
   var iddetail = $(this).data('iddetail');
@@ -10,7 +16,7 @@ $(document).on('turbolinks:load', function(){
     a += 1;
     var total = a*price;
     $(".quantity-"+ iddetail).val(a);
-    document.getElementById("cart_total_price-" + iddetail).innerHTML= a*price;
+    document.getElementById("cart_total_price-" + iddetail).innerHTML= formatter.format(a*price);
   });
 
 
@@ -24,26 +30,28 @@ $(document).on('turbolinks:load', function(){
       $(".quantity-"+ iddetail).val(a);
 
     }
-     document.getElementById("cart_total_price-" + iddetail).innerHTML= a*price;
+     document.getElementById("cart_total_price-" + iddetail).innerHTML= formatter.format(a*price);
   });
   
 
 });
 
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
   $(".delete-product").click(function(){
     var id = $(this).data('id');
     $.ajax({
+
       url: '/add_products_to_carts/'+id ,
       type: 'DELETE',
       data: {
+         authenticity_token: $('[name="csrf-token"]')[0].content,
         _method: 'DELETE',
         id: id,
         
       },
       success: function(data) {
         $(".xoa-"+id).remove();
-        alert(I18n.t("evaluators.alert.delete"));
+        alert('xoa thanh cong');
       }  
     
     });
@@ -52,7 +60,13 @@ $(document).on('turbolinks:load', function(){
 
 
 
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
+
+  const formatter = new Intl.NumberFormat('VN', {
+    style: 'currency',
+    currency: 'VND',
+    minimumFractionDigits: 3
+  })
   $( ".add-key" ).mouseout(function() {
     
     var id = $(this).data('idproduct');
@@ -99,7 +113,7 @@ $(document).on('turbolinks:load', function(){
         type: 'put',
       
         success : function(data) {
-                $(".quantity-"+iddetail).html(data.quantity);
+                $(".quantity-"+iddetail).html();
         }  
        
       });
@@ -107,4 +121,11 @@ $(document).on('turbolinks:load', function(){
 
 });
 
+
+  $(document).ready(function(){
+    $(".dia_chi").click(function(){
+
+        $("#add-login").click();
+    });
+  });
 

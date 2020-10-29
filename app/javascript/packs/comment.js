@@ -1,9 +1,7 @@
-
 var url = window.location.pathname;
 var product_id = url.substring(url.lastIndexOf('/') + 1);
 $(document).on('click', '.post-comment', function() {
 	var comment_id = $(this).data('id');
-
 	$.ajax({
 	  url: '/products/'+ product_id + '/comments',
 	  type: 'POST',
@@ -16,7 +14,6 @@ $(document).on('click', '.post-comment', function() {
 	 
 	  },
 	  success: function(data){
-	  	
 	    $('#append-comment').prepend(data.data_comment)
 	    $('#count-comment').replaceWith('('+data.count_comment+')')
 	    $('.comment_content').val("")

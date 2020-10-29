@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_012838) do
     t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "product_detail_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -85,6 +86,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_012838) do
     t.integer "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.string "phone"
   end
 
   create_table "product_details", force: :cascade do |t|
@@ -144,6 +147,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_012838) do
     t.string "image"
     t.string "fullname"
     t.boolean "admin"
+    t.string "hoten"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

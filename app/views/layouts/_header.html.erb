@@ -59,48 +59,46 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 
-							<% if user_signed_in? %>
+								<% if user_signed_in? %>
 
 
-								<li><%= link_to current_user do %>
-								<i class="fa fa-user"></i><%= t ("pages.index.Account") %> <% end %>
-								</li>
-								<% if current_user.admin? %>
-
-									<li>
-										<%= link_to admin_home_path  do %>
-											<i class='fas fa-user-cog' style='font-size:15px'> </i> admin
-										<% end %>
+									<li><%= link_to current_user do %>
+									<i class="fa fa-user"></i><%= t ("pages.index.Account") %> <% end %>
 									</li>
+										
+									<% if current_user.admin? %>
 
-								<% else %>
+										<li>
+											<%= link_to admin_home_path  do %>
+												<i class='fas fa-user-cog' style='font-size:15px'> </i> admin
+											<% end %>
+										</li>
+										
+									<% else %>	
+										
+										<li>
+											<%= link_to destroy_user_session_path, method: :delete do %>
+												<i class='fas fa-sign-out-alt'
+												id = "login-logo"></i>
+												<%= t ("pages.index.logout") %>
+											<% end %>
+										</li>	
 
-								<% end %>
-								<li>
-									<%= link_to destroy_user_session_path, method: :delete do %>
-										<i class='fas fa-sign-out-alt'
-										id = "login-logo"></i>
-										<%= t ("pages.index.logout") %>
 									<% end %>
-								</li>	
-								<% else %>										
-
+									
+									<li></i>  <%= link_to t("pages.index.Cart"), cart_path(current_cart.id)  %></li>
+									<% if user_signed_in?&& current_user.orders.last.present?%>
+										<li><%= link_to t("orders.show.checkout"), order_path(current_user.orders.last) %></li>
+									<%end%>
+								<%else%>
 									<li>
 										<a id ="add-login" href="" data-toggle="modal" 
 											data-target="#modalLoginForm" >
 											<i class="fa fa-lock"></i> <%= t ("pages.index.Login") %>
 										</a>
 									</li>
-
 								<% end %>
-								<% if user_signed_in? %>
-									<li>
-										<%= link_to carts_path do %>
-											<i class="fa fa-shopping-cart"></i>  
-											<%= t ("pages.index.Cart") %>
-										<% end %>
-									</li>
-								<% end %>
+								
 							</ul>
 						</div>
 					</div>
@@ -123,20 +121,7 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li class="active"><%= link_to 'Home', root_url %></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><%= link_to 'Products', '#' %></a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 											
-                                    </ul>
-                                </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li> 
-								<li><a href="404.html">404</a></li>
+
 								<li><a href="contact-us.html">Contact</a></li>
 							</ul>
 						</div>
@@ -157,11 +142,7 @@
 				</div>
 			</div>
 		</div><!--/header-bottom-->
-					<%= javascript_tag do %>
-				      I18n.locale = "<%= I18n.locale %>";
-				      I18n.translations = {};
-				      I18n.translations["<%= I18n.locale %>"] = <%= raw I18n::JS.filtered_translations[I18n.locale].to_json %>;
-				    <% end %>
+	
 	</header><!--/header-->
 
 
