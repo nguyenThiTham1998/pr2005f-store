@@ -116,8 +116,6 @@ $(document).on('click', '.post-comment', function() {
 				dataType: 'json',
 				success: function(data){
 					$('#home').html(data.data_products);
-
-				
 				}	
 			})
 		});		 

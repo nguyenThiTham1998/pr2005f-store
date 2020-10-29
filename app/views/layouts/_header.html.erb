@@ -138,7 +138,11 @@
 					       
 						</div>
 					</div>
-				 
+					<%= javascript_tag do %>
+					  I18n.locale = "<%= I18n.locale %>";
+					  I18n.translations = <%= raw I18n::JS.filtered_translations.to_json %>;;
+					<% end %>
+
 				</div>
 			</div>
 		</div><!--/header-bottom-->

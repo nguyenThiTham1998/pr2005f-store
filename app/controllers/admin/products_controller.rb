@@ -2,7 +2,6 @@ class Admin::ProductsController < Admin::ApplicationController
     before_action :find_product, only: [:edit, :update, :destroy, :show]
 
 	def index
-
         @products = Product.includes([:product_details, :image_attachments]).all 
 
 	end

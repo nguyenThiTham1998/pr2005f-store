@@ -1,5 +1,5 @@
 var a = 1;
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
  
   $("#add").click(function(){
   	 a += 1;
@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
  
   $("#reduce").click(function(){
   	if(a>1){
@@ -18,7 +18,7 @@ $(document).ready(function(){
   });
 });
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   var url = window.location.pathname;
     var product_id = url.substring(url.lastIndexOf('/') + 1);
   $(document).on('click', '.color-button', function(){
@@ -26,6 +26,7 @@ $(document).ready(function(){
     var color_id = $(this).data('id');
      
     if ($('#color-' + color_id).is(':checked')) {
+
       $.ajax({
         url: '/products/' + product_id ,
         type: 'get',
@@ -73,7 +74,7 @@ $(document).ready(function(){
                
               } else if(data.success){
                 
-                alert('themgiohangthanhcong');
+                alert(I18n.t("evaluators.alert.cart"));
               }
           } 
 

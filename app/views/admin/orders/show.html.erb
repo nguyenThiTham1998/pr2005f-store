@@ -103,8 +103,10 @@
                   <td> <%= t".total"%> </td>
                 </tr>  
              
-              <% @order_details.each do |order_detail| %>          
-                <% product = Product.find_by(id: order_detail.product_id) %>
+           <% @order_details.each do |order_detail| %>          
+                <% product_detail = ProductDetail.find_by(id: order_detail.product_detail_id) %>
+                <% product = Product.find_by(id: product_detail.product_id) %>
+               
                 <tr class = "title-table">
                   <td>
                     <ul class="products-list product-list-in-box">
@@ -115,18 +117,19 @@
                         <div style="padding-left: 75px;">
                           <a href="javascript:void(0)" class="product-title"><%=product.name%>
                             <div class="product-description">
-                              Màu sắc, kích thước
+                              <%=product_detail.color%>, <%=product_detail.size%>
                             </div>
                           </a>
                         </div>
                                                  
                     </ul>
                   </td>
-                  <td>price</td>
-                  <td>quantity</td>
-                  <td>unit</td>
+                  <td><%=product_detail.price%></td>
+                  <td><%=order_detail.quality%></td>
+                  <td><%=product_detail.price*order_detail.quality%></td>
                 </tr>
               <% end %>
+
 
             </tbody>
           </table>

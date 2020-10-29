@@ -1,5 +1,5 @@
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   
     const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 });
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $(".delete-product").click(function(){
     var id = $(this).data('id');
     $.ajax({
@@ -60,7 +60,7 @@ $(document).ready(function(){
 
 
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
 
   const formatter = new Intl.NumberFormat('VN', {
     style: 'currency',
@@ -122,7 +122,7 @@ $(document).ready(function(){
 });
 
 
-  $(document).ready(function(){
+  $(document).on('turbolinks:load', function(){
     $(".dia_chi").click(function(){
 
         $("#add-login").click();

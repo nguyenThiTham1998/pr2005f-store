@@ -1,0 +1,19 @@
+  <div class="col-sm-4 pr-left">
+    <div class="product-image-wrapper">
+        <div class="single-products" >
+          <div class="productinfo text-center">
+              <%= link_to (image_tag product.image[0] if product.image.attached?), product_path(product) %>
+              <% product.product_details.pluck(:price)[0] %>
+              <p><%= product.name %></p>  
+              <a href="#" data-toggle="modal" data-target="#showproduct<%= product.id %>">
+                <i class="fa fa-shopping-cart"></i><%= t("pages.index.Add_to_cart") %></a>  
+          </div> 
+        </div>  
+      <div class="choose">
+        <ul class="nav nav-pills nav-justified">
+          <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+          <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
