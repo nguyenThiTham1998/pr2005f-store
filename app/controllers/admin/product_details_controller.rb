@@ -1,6 +1,7 @@
 class Admin::ProductDetailsController < Admin::ApplicationController
 	before_action :find_product_detail, only: [:edit, :update]
 	def show
+	
 	end	
 	def edit		
 	end

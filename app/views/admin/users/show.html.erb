@@ -112,9 +112,12 @@
 			                  		<%=t ".order_status"+Order.order_statuses[order.order_status].to_s %>
 			                  	</span>
 			                  </td>
-			                  <td>
+			                  <td class="action">
 			                  	<%= link_to admin_order_path(order.id) do  %>
 							      <i class="fa fa-eye"></i>
+							    <% end %>
+							    <%= link_to admin_order_path(order.id, format: :csv) do  %>
+							      <i class="fas fa-file-export"></i>
 							    <% end %>
 							  </td>
 			                </tr>

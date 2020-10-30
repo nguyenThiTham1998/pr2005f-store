@@ -5,7 +5,7 @@ Rails.application.routes.draw do
         resources :carts
         resources :orders
         resources :products
-        resources  :order_details
+        resources :order_details
         resources :add_products_to_carts
         resources :product_details   
         resources :comments 
@@ -41,10 +41,20 @@ Rails.application.routes.draw do
             get 'static_pages/home'
             resources :products do
               resources :product_details 
+            end 
+            resources :product_details 
+            resources :orders 
+            resources :order_details
+            resources :comments 
+            resources :users do
+                resources :orders
+            end
 
-            end      
         end
     end 
+
+    resources :export_users, only: :index
+
     devise_for :users,
                     path: '',
                     path_names: {sign_in: 'login' ,sign_out: 'logout' ,edit: 'profile',sign_up: 'resgistration'},

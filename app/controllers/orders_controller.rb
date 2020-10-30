@@ -7,7 +7,12 @@ class OrdersController < ApplicationController
 		@order.order_details.new
 	end
 	def index
-		orders= Order.all
+		@orders= Order.all
+
+		respond_to do |format|
+	    	format.html
+	    	format.csv { send_data @orders.to_csv }
+	    end
 	end
 	def show
 	end
@@ -63,4 +68,16 @@ class OrdersController < ApplicationController
 	  def user_params
 	  	params.require(:user).permit(:address, :phone)
 	  end
+
+	  def self.to_csv
+ 		attributes = %w{user_id order_status total_price created_at updated_at address phone}
+
+ 		CSV.generate do |csv|
+ 		cvs << attributes
+
+	 		all.each do |order|
+	 			csv << order.attributes.value_at(*attributes)
+	 		end
+	 	end
+ 	  end
 end

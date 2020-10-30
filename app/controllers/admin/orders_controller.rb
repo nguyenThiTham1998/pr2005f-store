@@ -16,6 +16,7 @@ class Admin::OrdersController < Admin::ApplicationController
 	    @order_status = Order.order_statuses.reject{|k| k == "Canceled by buyer"}
 	end
 
+	 
 	
 	def update		
 		pr = params[:id].split(",").map{ |id| id.to_i }
@@ -36,7 +37,11 @@ class Admin::OrdersController < Admin::ApplicationController
 			@order_details = @order.order_details
 			@user = User.find_by(id: @order.user_id)
 		end
+	    @product_details = @order.product_details
+
+	    respond_to do |format|
+	    	format.html
+	    	format.csv { send_data @product_details.to_csv, filename: "order-#{Date.today}.csv"  }
+	    end
 	end
-
 end 
-

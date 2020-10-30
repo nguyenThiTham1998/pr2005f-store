@@ -107,23 +107,27 @@
                   </thead>
 
                   <% @orders.each do |order| %>
-                  	<% order_details = order.order_details %>
-                  	<tbody>
-                  	<tr>
-                    	<td><a href="#"><%=order.id%></a></td>
-                    	<td>
-                    		<%product_names = order_details.map{|order_detail| 
-                    			Product.find_by(id: order_detail.product_id).name }.uniq %>
-                    		<% product_names.each do |product_name| %>
-                    			<%= product_name%>,
-                    		<%end%>
+                    <% order_details = order.order_details %>
+                    <tbody>
+                    <tr>
+                      <td><a href="#"><%=order.id%></a></td>
+                      <td>
+                        <%product_details = order_details.map{|order_detail| 
+                          ProductDetail.find_by(id: order_detail.product_detail_id) } %>
 
-                    	</td>
-                    	<td><span class = "label <%=order.order_status%>">
-                    			<%=t ".order_status"+Order.order_statuses[order.order_status].to_s %>
-                    		</span>
-	                    </td>
-                        <th><%=number_to_currency(order.total_price)%></th>                   			
+                        <%product_names = product_details.map{|product_detail| 
+                          Product.find_by(id: product_detail.product_id).name }.uniq %>
+
+                        <% product_names.each do |product_name| %>
+                          <%= product_name%>,
+                        <%end%>
+
+                      </td>
+                      <td><span class = "label <%=order.order_status%>">
+                          <%=t ".order_status"+Order.order_statuses[order.order_status].to_s %>
+                        </span>
+                      </td>
+                        <th><%=number_to_currency(order.total_price)%></th>                         
                   </tr>
                   <% end %>
 
