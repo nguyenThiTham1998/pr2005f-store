@@ -1,4 +1,5 @@
 class ProductDetail < ApplicationRecord
+  acts_as_paranoid
   scope :display_by_color, ->(color){where("color like ?", color)}  
   has_many :order_details
   belongs_to :product

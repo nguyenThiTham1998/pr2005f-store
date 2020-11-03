@@ -113,10 +113,10 @@
                       <td><a href="#"><%=order.id%></a></td>
                       <td>
                         <%product_details = order_details.map{|order_detail| 
-                          ProductDetail.find_by(id: order_detail.product_detail_id) } %>
+                          ProductDetail.with_deleted.find_by(id: order_detail.product_detail_id) } %>
 
                         <%product_names = product_details.map{|product_detail| 
-                          Product.find_by(id: product_detail.product_id).name }.uniq %>
+                          Product.with_deleted.find_by(id: product_detail.product_id).name }.uniq %>
 
                         <% product_names.each do |product_name| %>
                           <%= product_name%>,

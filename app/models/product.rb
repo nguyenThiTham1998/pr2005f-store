@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-
+	acts_as_paranoid
 	has_many :order_details
 	has_many :product_details,dependent: :destroy
 	has_many :comments, dependent: :destroy
