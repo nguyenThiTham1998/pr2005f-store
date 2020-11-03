@@ -72,20 +72,16 @@
 											<%= link_to admin_home_path  do %>
 												<i class='fas fa-user-cog' style='font-size:15px'> </i> admin
 											<% end %>
-										</li>
-										
-									<% else %>	
-										
-										<li>
-											<%= link_to destroy_user_session_path, method: :delete do %>
-												<i class='fas fa-sign-out-alt'
-												id = "login-logo"></i>
-												<%= t ("pages.index.logout") %>
-											<% end %>
-										</li>	
+										</li>									
 
 									<% end %>
-									
+									<li>
+										<%= link_to destroy_user_session_path, method: :delete do %>
+											<i class='fas fa-sign-out-alt'
+											id = "login-logo"></i>
+											<%= t ("pages.index.logout") %>
+										<% end %>
+									</li>	
 									<li></i>  <%= link_to t("pages.index.Cart"), cart_path(current_cart.id)  %></li>
 									<% if user_signed_in?&& current_user.orders.last.present?%>
 										<li><%= link_to t("orders.show.checkout"), order_path(current_user.orders.last) %></li>
