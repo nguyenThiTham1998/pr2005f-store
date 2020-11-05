@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+	load_and_authorize_resource find_by: :slug
 	before_action :find_product, only: :show
 	def index
 			
@@ -37,7 +38,7 @@ class ProductsController < ApplicationController
 	
 	private
 	def find_product
-		@product = Product.find_by id: params[:id]
+		@product = Product.friendly.find_by slug: params[:id]
 		if @product.nil?
 			redirect_to root_url, notice: t('products.show.notice')
 		end

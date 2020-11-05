@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_031753) do
+ActiveRecord::Schema.define(version: 2020_11_04_074711) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 2020_11_04_031753) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "parent_id"
-    t.boolean "spam"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_comments_on_deleted_at"
     t.index ["product_id"], name: "index_comments_on_product_id"
@@ -87,7 +86,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_031753) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "order_status"
+    t.integer "order_status", default: 0, null: false
     t.integer "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -122,9 +121,10 @@ ActiveRecord::Schema.define(version: 2020_11_04_031753) do
     t.integer "classify"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "out_stock"
     t.datetime "deleted_at"
+    t.string "slug"
     t.index ["deleted_at"], name: "index_products_on_deleted_at"
+    t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
   create_table "sub_comments", force: :cascade do |t|
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_031753) do
     t.string "fullname"
     t.boolean "admin"
     t.string "hoten"
+    t.index "\"slug\"", name: "index_users_on_slug", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
