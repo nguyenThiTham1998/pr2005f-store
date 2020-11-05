@@ -1,5 +1,5 @@
-class SearchsController < ApplicationController
-	before_action :check_keyword, only: :index
+class Admin::SearchsController < Admin::ApplicationController
+  before_action :check_keyword, only: :index
 
   def index
     @products = @q.result(distinct: true)

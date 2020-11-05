@@ -34,7 +34,7 @@ Rails.application.routes.draw do
         end 
 
         get "/search", to: "searchs#index"
-          resources :comments 
+        resources :comments 
 
 
         namespace :admin do
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
             resources :users do
                 resources :orders
             end
-
+            get "/search", to: "searchs#index"
         end
     end 
 
