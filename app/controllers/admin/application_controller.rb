@@ -3,6 +3,7 @@ class Admin::ApplicationController < ActionController::Base
     before_action :check_login
   	before_action :require_admin
 	before_action :set_locale
+	before_action :set_search
   
   	private
 
@@ -26,6 +27,10 @@ class Admin::ApplicationController < ActionController::Base
 
 	def default_url_options
 	    {locale: I18n.locale}
+	end
+
+	def set_search
+	  @q = Product.includes(:image_attachments).ransack(params[:q])
 	end
   
 end
