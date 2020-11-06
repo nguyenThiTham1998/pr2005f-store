@@ -81,6 +81,18 @@
         <div class="col-md-8">
           
           <!-- /.row -->
+          <div class="nav-tabs-custom" style="cursor: move;">
+            <!-- Tabs within a box -->
+            <ul class="nav nav-tabs pull-right ui-sortable-handle">
+              <li class="pull-left header"><i class="fa fa-inbox"></i> Orders </li>
+            </ul>
+            <div class="tab-content no-padding">
+              <!-- Morris chart - Sales -->
+              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                <%= line_chart @monthly_orders.count %>                
+              </div>
+            </div>
+          </div>
 
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">

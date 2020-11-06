@@ -9,6 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 require('admin-lte')
 require("jquery")
+require("chartkick")
+require("chart.js")
 import "bootstrap"
 //= require jquery3
 //= require popper
@@ -19,6 +21,8 @@ import "bootstrap"
 //= require main
 //= require price-range
 //= require_tree
+//= require chartkick
+//= require Chart.bundle
 import 'packs/order_show.js';
 import 'packs/addproducttocart.js';
 import 'packs/cart.js';

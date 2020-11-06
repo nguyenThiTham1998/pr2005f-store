@@ -158,7 +158,6 @@ ActiveRecord::Schema.define(version: 2020_11_04_074711) do
     t.string "fullname"
     t.boolean "admin"
     t.string "hoten"
-    t.index "\"slug\"", name: "index_users_on_slug", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

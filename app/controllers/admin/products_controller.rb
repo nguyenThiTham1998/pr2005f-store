@@ -46,7 +46,6 @@ class Admin::ProductsController < Admin::ApplicationController
             redirect_to admin_products_path
         else 
             pr = product_params.merge(classify: product_params[:classify].to_i, product_type:  product_params[:classify].to_i )    
-            @product.image.destroy_all
             @product.image.attach(params[:product][:image])
             if @product.update(pr)
                 flash[:success] = t ".Product_updated"
@@ -72,7 +71,7 @@ class Admin::ProductsController < Admin::ApplicationController
     end
 
     def find_product
-        @product = Product.find_by(id: params[:id])
+        @product = Product.find_by(slug: params[:id])
     end 
   	
 

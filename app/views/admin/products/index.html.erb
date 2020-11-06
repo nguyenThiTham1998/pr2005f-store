@@ -98,7 +98,7 @@
                         <%= link_to 'View',  admin_product_path(product), class: "label label-success"  %>
                       </td>
                       <td>
-                        <%= link_to edit_admin_product_path(product.id) do  %>
+                        <%= link_to edit_admin_product_path(product) do  %>
                           <i class="fa fa-pencil"></i>
                         <% end %>
                         <%= link_to admin_product_path(product.id), method: :delete do  %>
