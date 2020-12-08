@@ -8,7 +8,8 @@ class User < ApplicationRecord
 	scope :order_by_orders, -> { left_joins(:orders).group(:user_id).order('COUNT(orders.id) DESC')}
 	has_one :cart
 	scope :count_user, -> {where('created_at >=?', 24.hour.ago)}
-
+	validates :VALID_PHONE_REGEX, length: { maximum: 12 },
+				format: { with: /\A\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}\z/ }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable,
   devise :database_authenticatable, :registerable,
