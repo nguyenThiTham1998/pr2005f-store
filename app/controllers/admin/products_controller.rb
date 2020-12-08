@@ -2,9 +2,9 @@ class Admin::ProductsController < Admin::ApplicationController
     before_action :find_product, only: [:edit, :update, :destroy, :show]
 
 	def index
-        @products = Product.includes([:product_details, :image_attachments]).all 
-
-	end
+        @products = Product.includes([:product_details, :image_attachments]).all
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(5)
+    end
 
     def new       
     	@product = Product.new

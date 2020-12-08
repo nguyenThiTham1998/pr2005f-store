@@ -37,46 +37,47 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-                <tbody><tr>
-                  <th>ID</th>
-                  <th>Image</th>
-                  <th>Product name</th>
-                  <th>Catalogue</th>
-                  <th>Price (VND)</th>
-                  <th>Update date</th>
-                  <th>Create date</th>
-                  <th>Product details</th>
-                  <th>Edit</th>
-                </tr>
-
-                <% @products.each do |product| %>
-                <% product_detail_prices = product.product_details.map{ |product_detail| product_detail.price }.uniq%>
-
+                <tbody>
                   <tr>
-                    <th><%=product.id%></th>
-                    <th class = "index-img"><%=image_tag product.image.first if product.image.attached? %></th>
-                    <th><%=product.name%></th>
-                    <td><%=product.classify%>,<%=product.product_type%></td>
-                    <% if product_detail_prices.length == 1%>
-                      <th><%= product_detail_prices.first%></th>
-                    <% else %>
-                      <th><%=product_detail_prices.min%> - <%=product_detail_prices.max%></th>
-                    <%end%>
-                    <td><%=product.updated_at%></td>
-                    <td><%=product.created_at%></td>
-                    <td>
-                      <%= link_to 'View',  admin_product_path(product), class: "label label-success"  %>
-                   </td>
-                    <td>
-                      <%= link_to edit_admin_product_path(product.id) do  %>
-                        <i class="fa fa-pencil"></i>
-                      <% end %>
-                    </td>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Product name</th>
+                    <th>Catalogue</th>
+                    <th>Price (VND)</th>
+                    <th>Update date</th>
+                    <th>Create date</th>
+                    <th>Product details</th>
+                    <th>Edit</th>
                   </tr>
-                <% end %>
 
+                  <% @products.each do |product| %>
+                    <% product_detail_prices = product.product_details.map{ |product_detail| product_detail.price }.uniq%>
 
-              </tbody></table>
+                    <tr>
+                      <th><%=product.id%></th>
+                      <th class = "index-img"><%=image_tag product.image.first if product.image.attached? %></th>
+                      <th><%=product.name%></th>
+                      <td><%=product.classify%>,<%=product.product_type%></td>
+                      <% if product_detail_prices.length == 1%>
+                        <th><%= product_detail_prices.first%></th>
+                      <% else %>
+                        <th><%=product_detail_prices.min%> - <%=product_detail_prices.max%></th>
+                      <%end%>
+                      <td><%=product.updated_at%></td>
+                      <td><%=product.created_at%></td>
+                      <td>
+                        <%= link_to 'View',  admin_product_path(product), class: "label label-success"  %>
+                     </td>
+                      <td>
+                        <%= link_to edit_admin_product_path(product.id) do  %>
+                          <i class="fa fa-pencil"></i>
+                        <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <%= paginate @products %>
             </div>
             <!-- /.box-body -->
           </div>

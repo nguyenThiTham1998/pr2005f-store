@@ -80,3 +80,4 @@ gem 'bullet', group: 'development'
 gem "ransack"
 gem 'i18n-js'
 gem 'faker', '2.1.2'
+gem 'kaminari'
