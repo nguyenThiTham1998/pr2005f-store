@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_012838) do
+ActiveRecord::Schema.define(version: 2020_11_04_031753) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 2020_10_27_012838) do
     t.integer "record_id", null: false
     t.integer "blob_id", null: false
     t.datetime "created_at", null: false
+    t.datetime "deleted_at"
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["deleted_at"], name: "index_active_storage_attachments_on_deleted_at"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
@@ -68,6 +70,9 @@ ActiveRecord::Schema.define(version: 2020_10_27_012838) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "parent_id"
+    t.boolean "spam"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
     t.index ["product_id"], name: "index_comments_on_product_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -99,6 +104,8 @@ ActiveRecord::Schema.define(version: 2020_10_27_012838) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "discount"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_product_details_on_deleted_at"
     t.index ["product_id"], name: "index_product_details_on_product_id"
   end
 
@@ -115,6 +122,9 @@ ActiveRecord::Schema.define(version: 2020_10_27_012838) do
     t.integer "classify"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "out_stock"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_products_on_deleted_at"
   end
 
   create_table "sub_comments", force: :cascade do |t|

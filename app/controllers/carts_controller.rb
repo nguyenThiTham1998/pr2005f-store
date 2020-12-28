@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-load_and_authorize_resource
+
 	def index
 		
 		if current_cart.content.nil?

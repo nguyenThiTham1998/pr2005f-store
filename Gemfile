@@ -79,4 +79,4 @@ gem 'bullet', group: 'development'
 gem "ransack"
 gem 'i18n-js'
 gem 'cancancan', '~> 2.3'
-
+gem "paranoia"

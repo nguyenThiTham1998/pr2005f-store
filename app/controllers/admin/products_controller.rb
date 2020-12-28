@@ -2,8 +2,12 @@ class Admin::ProductsController < Admin::ApplicationController
     before_action :find_product, only: [:edit, :update, :destroy, :show]
 
 	def index
-
-        @products = Product.includes([:product_details, :image_attachments]).all 
+        if params[:type]=="deleted"
+            @products = Product.includes([:product_details, :image_attachments]).only_deleted 
+            @type = "deleted"
+        else       
+            @products = Product.includes([:product_details, :image_attachments]).all 
+        end
 
 	end
 
@@ -23,27 +27,40 @@ class Admin::ProductsController < Admin::ApplicationController
         end
     end
     def show
-        @product_details = @product.product_details
-        if @product_details.empty?
-            flash[:danger] = ''
-            render 'index'
-        end
+        if params[:type] == "deleted"
+           @product = Product.only_deleted.find(params[:id])
+        else
+            @product_details = @product.product_details
+            if @product_details.empty?
+                flash[:danger] = ''
+                redirect_to admin_products_path
+            end
+        end    
     end    
     def edit
     end
 
-    def update  
-        pr = product_params.merge(classify: product_params[:classify].to_i, product_type:  product_params[:classify].to_i )    
-        @product.image.destroy_all
-        @product.image.attach(params[:product][:image])
-        if @product.update(pr)
-            flash[:success] = t ".Product_updated"
+    def update
+        if params[:type] == "restore"
+            Product.restore(params[:id].to_i, recursive: true)
             redirect_to admin_products_path
+        else 
+            pr = product_params.merge(classify: product_params[:classify].to_i, product_type:  product_params[:classify].to_i )    
+            @product.image.destroy_all
+            @product.image.attach(params[:product][:image])
+            if @product.update(pr)
+                flash[:success] = t ".Product_updated"
+                redirect_to admin_products_path
+            end
         end
     end
 
     def destroy
-
+       
+        if @product.destroy
+            flash[:success] = "Product deleted"
+            redirect_to admin_products_path
+        end
     end 
 
     private
